@@ -7,7 +7,7 @@ import { siteConfig } from '@/lib/site.config';
 
 export const metadata = {
   title: 'Contact',
-  description: 'Start a project with FlashLLCTech. Tell us what you’re building or automating.',
+  description: 'Start a project with Nexus Dev Studio. Tell us what you’re building or automating.',
 };
 
 const channels = [

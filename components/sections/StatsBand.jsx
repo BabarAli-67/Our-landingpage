@@ -13,7 +13,7 @@ export default function StatsBand() {
     <div className="grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-white/10 bg-white/5 lg:grid-cols-4">
       {stats.map((s, i) => (
         <Reveal key={s.label} delay={i * 0.06}>
-          <div className="flex flex-col items-center gap-2 bg-ink-900/60 px-6 py-10 text-center backdrop-blur">
+          <div className="flex flex-col items-center gap-2 bg-ink-800/80 px-6 py-10 text-center backdrop-blur">
             <CountUp value={s.value} />
             <span className="text-sm text-slate-400">{s.label}</span>
           </div>

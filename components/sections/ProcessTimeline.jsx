@@ -19,7 +19,7 @@ export default function ProcessTimeline() {
             <Reveal key={step.title} delay={i * 0.1}>
               <div className="relative flex flex-col gap-4">
                 <div className="relative z-10 flex items-center gap-4">
-                  <span className="grid h-16 w-16 shrink-0 place-items-center rounded-2xl border border-white/10 bg-ink-900 text-accent-soft shadow-glow">
+                  <span className="grid h-16 w-16 shrink-0 place-items-center rounded-2xl border border-white/10 bg-ink-800 text-primary-soft shadow-glow">
                     <Icon className="h-6 w-6" />
                   </span>
                   <span className="text-5xl font-semibold text-white/10">

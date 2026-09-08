@@ -55,7 +55,7 @@ export default function ContainerScroll({ titleComponent, image, children }) {
             disabled ? undefined : { rotateX: rotate, scale, y: translateY, opacity }
           }
           className={cn(
-            'mx-auto mt-10 max-w-6xl rounded-[28px] border border-white/[0.08] bg-ink-800/60 p-3 shadow-elevate gpu',
+            'mx-auto mt-10 max-w-6xl rounded-[28px] border border-white/[0.08] bg-ink-800/80 p-3 shadow-elevate gpu',
             'ring-1 ring-white/[0.06] [transform-style:preserve-3d]'
           )}
         >

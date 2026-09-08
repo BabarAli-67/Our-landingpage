@@ -13,7 +13,7 @@ import { caseStudies, testimonials } from '@/lib/content';
 
 export const metadata = {
   title: 'Work',
-  description: 'Case studies and client outcomes from FlashLLCTech.',
+  description: 'Case studies and client outcomes from Nexus Dev Studio.',
 };
 
 export default function WorkPage() {

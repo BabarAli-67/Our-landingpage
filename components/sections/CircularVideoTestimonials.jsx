@@ -173,7 +173,7 @@ function VideoModal({ item, onClose }) {
         exit={{ scale: 0.95, y: 20, opacity: 0 }}
         transition={{ type: 'spring', stiffness: 260, damping: 26 }}
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-3xl overflow-hidden rounded-3xl border border-white/12 bg-ink-900 shadow-elevate"
+        className="relative w-full max-w-3xl overflow-hidden rounded-3xl border border-white/12 bg-ink-800 shadow-elevate"
       >
         <div className="relative aspect-video w-full bg-black">
           <video

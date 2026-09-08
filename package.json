@@ -2,7 +2,7 @@
   "name": "flashllctech",
   "version": "1.0.0",
   "private": true,
-  "description": "FlashLLCTech — High-end Software House & AI Automation Agency",
+  "description": "Nexus Dev Studio — Websites & Mobile Apps",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

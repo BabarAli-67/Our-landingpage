@@ -4,6 +4,13 @@
 
 :root {
   --font-inter: 'Inter', system-ui, sans-serif;
+  --color-bg: #0a0f1d;
+  --color-surface: #111a33;
+  --color-surface-raised: #162040;
+  --color-primary: #ff6b4a;
+  --color-accent: #22d3ee;
+  --color-text: #ffffff;
+  --color-muted: #94a3b8;
   color-scheme: dark;
 }
 
@@ -23,15 +30,15 @@
   }
 
   body {
-    @apply bg-ink-950 text-slate-300 antialiased font-sans;
-    /* Ambient flame flares — fixed, painted once, no per-frame cost */
+    @apply bg-ink-950 text-slate-400 antialiased font-sans;
+    /* Ambient coral + teal flares on deep navy */
     background-image: radial-gradient(
         ellipse 90% 55% at 50% -8%,
-        rgba(255, 59, 47, 0.14),
+        rgba(255, 107, 74, 0.14),
         transparent 55%
       ),
-      radial-gradient(ellipse 55% 40% at 100% 8%, rgba(255, 122, 24, 0.1), transparent 60%),
-      radial-gradient(ellipse 50% 45% at 0% 30%, rgba(255, 194, 75, 0.05), transparent 60%);
+      radial-gradient(ellipse 55% 40% at 100% 8%, rgba(34, 211, 238, 0.1), transparent 60%),
+      radial-gradient(ellipse 50% 45% at 0% 30%, rgba(56, 189, 248, 0.06), transparent 60%);
     background-attachment: fixed;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
@@ -39,7 +46,7 @@
   }
 
   ::selection {
-    background: rgba(255, 59, 47, 0.32);
+    background: rgba(255, 107, 74, 0.35);
     color: #fff;
   }
 
@@ -48,12 +55,12 @@
       width: 10px;
     }
     ::-webkit-scrollbar-track {
-      background: #0b0b0d;
+      background: #0a0f1d;
     }
     ::-webkit-scrollbar-thumb {
-      background: linear-gradient(#ff3b2f, #ff7a18);
+      background: linear-gradient(#ff6b4a, #22d3ee);
       border-radius: 999px;
-      border: 2px solid #0b0b0d;
+      border: 2px solid #0a0f1d;
     }
   }
 
@@ -76,18 +83,18 @@
   }
 
   .eyebrow {
-    @apply inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.04]
-      px-3 py-1 text-xs font-medium uppercase tracking-[0.22em] text-slate-300
+    @apply inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-ink-800/80
+      px-3 py-1 text-xs font-medium uppercase tracking-[0.22em] text-slate-400
       shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)];
   }
 
   .h-display {
-    @apply text-4xl font-semibold leading-[1.03] tracking-tightest sm:text-5xl lg:text-6xl;
+    @apply text-4xl font-semibold leading-[1.03] tracking-tightest text-white sm:text-5xl lg:text-6xl;
   }
 
-  /* Premium tactile card surface */
+  /* Premium tactile card surface — dark blue / slate */
   .card-premium {
-    @apply relative rounded-2xl border border-white/[0.08] bg-white/[0.025] shadow-card backdrop-blur-md;
+    @apply relative rounded-2xl border border-white/[0.08] bg-ink-800/90 shadow-card backdrop-blur-md;
   }
 
   /* Fine grain overlay — static SVG, GPU-cheap */
@@ -101,7 +108,7 @@
   }
 }
 
-/* Chromatic-aberration edge for Liquid Glass buttons (flame-tinted) */
+/* Chromatic-aberration edge for Liquid Glass buttons (coral + teal) */
 .liquid-edge {
   position: relative;
   isolation: isolate;
@@ -115,8 +122,8 @@
   background: linear-gradient(
     135deg,
     rgba(255, 255, 255, 0.6),
-    rgba(255, 122, 24, 0.45) 40%,
-    rgba(255, 59, 47, 0.45) 60%,
+    rgba(34, 211, 238, 0.45) 40%,
+    rgba(255, 107, 74, 0.45) 60%,
     rgba(255, 255, 255, 0.25)
   );
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);

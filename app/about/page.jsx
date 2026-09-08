@@ -14,7 +14,7 @@ import { testimonials } from '@/lib/content';
 export const metadata = {
   title: 'About',
   description:
-    'FlashLLCTech is a senior software house & AI automation agency. Meet the team and the way we work.',
+    'Nexus Dev Studio is a senior software house & AI automation agency. Meet the team and the way we work.',
 };
 
 const values = [
@@ -30,7 +30,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About"
         title="A senior studio for the AI era"
-        lead="FlashLLCTech is a compact team of engineers and automation specialists building intelligent software for companies that can’t afford to guess."
+        lead="Nexus Dev Studio is a compact team of engineers and automation specialists building intelligent software for companies that can’t afford to guess."
       />
 
       <section className="section pt-6">

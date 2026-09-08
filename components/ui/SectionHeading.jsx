@@ -17,7 +17,7 @@ export default function SectionHeading({
       {eyebrow ? (
         <Reveal>
           <span className="eyebrow">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+            <span className="h-1.5 w-1.5 rounded-full bg-primary" />
             {eyebrow}
           </span>
         </Reveal>

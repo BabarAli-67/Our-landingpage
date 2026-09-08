@@ -228,7 +228,7 @@ function ShowcaseHeading() {
   return (
     <div className="flex max-w-xl flex-col gap-3">
       <span className="eyebrow w-fit">
-        <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+        <span className="h-1.5 w-1.5 rounded-full bg-primary" />
         Selected work
       </span>
       <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">

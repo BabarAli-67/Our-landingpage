@@ -9,7 +9,7 @@ import LiquidGlassButton from '@/components/ui/LiquidGlassButton';
 export const metadata = {
   title: 'Services',
   description:
-    'Agentic AI, enterprise automation, custom CRMs, full-stack web and mobile development from FlashLLCTech.',
+    'Agentic AI, enterprise automation, custom CRMs, full-stack web and mobile development from Nexus Dev Studio.',
 };
 
 export default function ServicesPage() {

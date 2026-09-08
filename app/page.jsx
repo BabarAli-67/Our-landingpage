@@ -1,81 +1,62 @@
-import ScrollExpansionHero from '@/components/sections/ScrollExpansionHero';
-import TrustStats from '@/components/sections/TrustStats';
+import ServiceProjects from '@/components/sections/ServiceProjects';
 import WhyUs from '@/components/sections/WhyUs';
-import ServicesShowcase from '@/components/sections/ServicesShowcase';
 import ProcessTimeline from '@/components/sections/ProcessTimeline';
-import HorizontalPortfolioSection from '@/components/sections/HorizontalPortfolioSection';
-import ResultsBenefits from '@/components/sections/ResultsBenefits';
-import CircularVideoTestimonials from '@/components/sections/CircularVideoTestimonials';
-import FAQ from '@/components/sections/FAQ';
 import CTASection from '@/components/sections/CTASection';
-
-import { PortfolioProvider } from '@/components/portfolio/PortfolioContext';
+import ScrollExpansionHero from '@/components/sections/ScrollExpansionHero';
+import WhatsAppFloat from '@/components/sections/WhatsAppFloat';
 import SectionHeading from '@/components/ui/SectionHeading';
-
-import { testimonials } from '@/lib/content';
+import { webProjects, appProjects } from '@/lib/content';
 
 /**
- * HomePage — section sequence:
- *   Navbar (layout) → Hero → Trust/Stats → About/Why Us → Services →
- *   How We Work → Portfolio → Results/Benefits → Testimonials → FAQ →
- *   Final CTA → Footer (layout)
+ * HomePage — single landing page (friend structure):
+ *   Hero (Websites & Mobile Apps)
+ *   → Web Development (best projects)
+ *   → App Development (best projects)
+ *   → Why Choose Us
+ *   → Process
+ *   → WhatsApp / Get Quote
  *
- * Reused animations:
- *   • ScrollExpansionHero      — the pinned media-expansion Hero (kept as-is)
- *   • HorizontalPortfolioSection — the pinned horizontal slider (Portfolio)
- *   • ContainerScroll          — reused inside WhyUs as the product visual
- *   • Tech marquee             — reused inside ServicesShowcase
+ * Funnel: Poster → Landing (trust) → WhatsApp (conversion)
  */
 export default function HomePage() {
   return (
-    <PortfolioProvider>
-      {/* 1 · Hero — scroll media-expansion (existing signature animation) */}
+    <>
       <ScrollExpansionHero />
 
-      {/* 2 · Trust / Stats */}
-      <TrustStats />
+      <ServiceProjects
+        id="web"
+        eyebrow="Web Development"
+        title="Websites that convert and scale"
+        lead="Fast, modern web products — landing pages, SaaS, and portals engineered for performance."
+        projects={webProjects}
+        accent="primary"
+      />
 
-      {/* 3 · About / Why Us (reuses ContainerScroll product visual) */}
+      <ServiceProjects
+        id="apps"
+        eyebrow="App Development"
+        title="Mobile apps people keep using"
+        lead="Cross-platform iOS & Android apps with native-grade feel and a maintainable codebase."
+        projects={appProjects}
+        accent="accent"
+      />
+
       <WhyUs />
 
-      {/* 4 · Services — the four core offerings */}
-      <ServicesShowcase />
-
-      {/* 5 · How We Work */}
       <section id="process" className="section">
         <SectionHeading
           align="center"
           eyebrow="How we work"
-          title="A calm, senior process"
-          lead="Tight loops, weekly demos, and production from the first sprint."
+          title="Simple path from chat to launch"
+          lead="Attention → trust → WhatsApp. Clear steps, weekly demos, no black boxes."
           className="mb-16"
         />
         <ProcessTimeline />
       </section>
 
-      {/* 6 · Portfolio / Case Studies — pinned horizontal slider (existing) */}
-      <HorizontalPortfolioSection />
-
-      {/* 7 · Results / Benefits */}
-      <ResultsBenefits />
-
-      {/* 8 · Testimonials — circular video reviews */}
-      <section className="section">
-        <SectionHeading
-          align="center"
-          eyebrow="Client reviews"
-          title="Real teams. Real results."
-          lead="Tap a card to hear it from the people who shipped with us."
-          className="mb-16"
-        />
-        <CircularVideoTestimonials items={testimonials} />
-      </section>
-
-      {/* 9 · FAQ */}
-      <FAQ />
-
-      {/* 10 · Final CTA */}
       <CTASection id="contact" />
-    </PortfolioProvider>
+
+      <WhatsAppFloat />
+    </>
   );
 }

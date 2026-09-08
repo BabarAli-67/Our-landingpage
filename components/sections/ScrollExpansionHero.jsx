@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { ArrowRight, Play, Sparkles } from 'lucide-react';
+import { ArrowRight, MessageCircle, Sparkles } from 'lucide-react';
 import { siteConfig } from '@/lib/site.config';
 import LiquidGlassButton from '@/components/ui/LiquidGlassButton';
 import SplineScene from '@/components/ui/SplineScene';
@@ -10,22 +10,8 @@ import AmbientLiquid from '@/components/ui/AmbientLiquid';
 import { usePrefersReducedMotion } from '@/hooks/useReducedMotion';
 
 /**
- * ScrollExpansionHero — 60fps refactor
- * ------------------------------------------------------------------
- * A pinned, multi-stage hero. A full-bleed media card sits over an ambient
- * Spline scene; on scroll it EXPANDS from a centered framed card to
- * full-screen while the intro copy parts and lifts away.
- *
- * PERFORMANCE:
- *  - The card is `absolute inset-0` (already full size). Expansion is done
- *    with `scale` only — never width/height/margin — so there is zero layout
- *    work per frame. `borderRadius` is the only paint-level property, and it
- *    is cheap (no reflow).
- *  - Every animated value is transform (x / y / scale) or opacity → all run
- *    on the compositor thread.
- *  - `.gpu` adds translate3d + will-change + backface-hidden on the moving
- *    layers.
- *  - Reduced motion renders the final, expanded state with no scroll binding.
+ * ScrollExpansionHero — pinned expand-on-scroll hero.
+ * Focus: Websites & Mobile Apps → WhatsApp conversion.
  */
 export default function ScrollExpansionHero() {
   const ref = useRef(null);
@@ -36,25 +22,21 @@ export default function ScrollExpansionHero() {
     offset: ['start start', 'end start'],
   });
 
-  // Light spring smooths the scroll signal without a JS scroll loop.
   const p = useSpring(scrollYProgress, {
     stiffness: 120,
     damping: 30,
     mass: 0.3,
   });
 
-  // --- transform-only expansion ---
-  const mediaScale = useTransform(p, [0, 0.62], [0.58, 1]); // small card → full-bleed
-  const mediaRadius = useTransform(p, [0, 0.62], [34, 0]); // paint-only, cheap
+  const mediaScale = useTransform(p, [0, 0.62], [0.58, 1]);
+  const mediaRadius = useTransform(p, [0, 0.62], [34, 0]);
   const mediaY = useTransform(p, [0, 0.62], [24, 0]);
 
-  // Intro copy parts + lifts (translate + opacity only)
   const titleY = useTransform(p, [0, 0.4], [0, -80]);
   const titleOpacity = useTransform(p, [0, 0.34], [1, 0]);
   const leftX = useTransform(p, [0, 0.4], [0, -120]);
   const rightX = useTransform(p, [0, 0.4], [0, 120]);
 
-  // Overlay copy fades in once expanded
   const overlayOpacity = useTransform(p, [0.56, 0.82], [0, 1]);
   const overlayY = useTransform(p, [0.56, 0.82], [40, 0]);
 
@@ -63,33 +45,30 @@ export default function ScrollExpansionHero() {
       <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
         <AmbientLiquid intensity="high" />
 
-        {/* Ambient 3D scene, furthest back (lazy + viewport-gated + mobile-skipped) */}
         <div className="absolute inset-0 opacity-70">
           <SplineScene scene={siteConfig.splineScene} />
         </div>
 
-        {/* Warm grid lines with a soft radial mask */}
         <div className="pointer-events-none absolute inset-0 bg-grid-glow bg-grid [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000,transparent)]" />
 
-        {/* Intro headline — parts on scroll */}
         <motion.div
           style={reduced ? undefined : { y: titleY, opacity: titleOpacity }}
           className="absolute z-20 flex flex-col items-center px-5 text-center gpu"
         >
           <motion.span style={reduced ? undefined : { x: leftX }} className="eyebrow mb-6">
             <Sparkles className="h-3.5 w-3.5 text-primary" />
-            Agentic AI · Automation · Full-Stack
+            {siteConfig.name}
           </motion.span>
 
           <h1 className="max-w-4xl text-balance text-5xl font-semibold leading-[1.02] tracking-tightest text-white sm:text-6xl lg:text-7xl">
             <motion.span style={reduced ? undefined : { x: leftX }} className="block">
-              We engineer
+              Websites &amp;
             </motion.span>
             <motion.span
               style={reduced ? undefined : { x: rightX }}
               className="block text-gradient"
             >
-              intelligent software.
+              Mobile Apps.
             </motion.span>
           </h1>
 
@@ -97,18 +76,23 @@ export default function ScrollExpansionHero() {
             style={reduced ? undefined : { opacity: titleOpacity }}
             className="mt-6 max-w-xl text-lg text-slate-400"
           >
-            A high-end software house & AI automation agency building the systems
-            that run modern companies.
+            One team for high-converting websites and polished mobile apps —
+            from first sketch to launch.
           </motion.p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <LiquidGlassButton href="/contact" size="lg">
-              Start a project
-              <ArrowRight className="h-4 w-4" />
+            <LiquidGlassButton
+              href={siteConfig.whatsappQuoteUrl}
+              size="lg"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <MessageCircle className="h-4 w-4" />
+              Get a Quote
             </LiquidGlassButton>
-            <LiquidGlassButton href="/work" size="lg" variant="ghost">
-              <Play className="h-4 w-4" />
+            <LiquidGlassButton href="/#web" size="lg" variant="ghost">
               See our work
+              <ArrowRight className="h-4 w-4" />
             </LiquidGlassButton>
           </div>
 
@@ -117,7 +101,6 @@ export default function ScrollExpansionHero() {
           </span>
         </motion.div>
 
-        {/* Expanding media card — scale/translate only */}
         <motion.div
           style={
             reduced
@@ -133,7 +116,7 @@ export default function ScrollExpansionHero() {
             loop
             playsInline
             preload="metadata"
-            poster="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=1600&q=70"
+            poster="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1600&q=70"
           >
             <source
               src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4"
@@ -141,21 +124,19 @@ export default function ScrollExpansionHero() {
             />
           </video>
 
-          {/* flame-tinted legibility wash */}
           <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/40 to-ink-950/10" />
           <div className="pointer-events-none absolute inset-0 bg-radial-fade opacity-70" />
 
-          {/* Overlay copy once expanded */}
           <motion.div
             style={reduced ? undefined : { opacity: overlayOpacity, y: overlayY }}
             className="absolute inset-x-0 bottom-0 flex flex-col items-center px-6 pb-16 text-center gpu"
           >
             <h2 className="max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-5xl">
-              From idea to production —{' '}
-              <span className="text-gradient">at agency velocity.</span>
+              Web &amp; mobile —{' '}
+              <span className="text-gradient">built as one product.</span>
             </h2>
             <p className="mt-4 max-w-xl text-slate-300">
-              Agents, automations, and products your team can actually ship.
+              Trust the work. Get the quote. Ship on WhatsApp.
             </p>
           </motion.div>
         </motion.div>

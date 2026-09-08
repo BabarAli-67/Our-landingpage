@@ -29,7 +29,7 @@ export default function AmbientLiquid({ className, intensity = 'md' }) {
       />
       <div
         className={cn(
-          'absolute bottom-[-20%] left-1/3 h-[30rem] w-[30rem] rounded-full bg-primary-soft/25 blur-[120px] animate-float gpu',
+          'absolute bottom-[-20%] left-1/3 h-[30rem] w-[30rem] rounded-full bg-ember/25 blur-[120px] animate-float gpu',
           opacity
         )}
         style={{ animationDelay: '4s' }}

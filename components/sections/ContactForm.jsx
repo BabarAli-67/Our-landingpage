@@ -114,7 +114,7 @@ export default function ContactForm() {
               Select a service
             </option>
             {services.map((s) => (
-              <option key={s} value={s} className="bg-ink-900">
+              <option key={s} value={s} className="bg-ink-800">
                 {s}
               </option>
             ))}
@@ -128,11 +128,11 @@ export default function ContactForm() {
             onChange={set('budget')}
             className={inputCls()}
           >
-            <option value="" className="bg-ink-900">
+            <option value="" className="bg-ink-800">
               Prefer not to say
             </option>
             {budgets.map((b) => (
-              <option key={b} value={b} className="bg-ink-900">
+              <option key={b} value={b} className="bg-ink-800">
                 {b}
               </option>
             ))}
@@ -194,7 +194,7 @@ function Field({ label, htmlFor, error, hint, children }) {
 
 const inputCls = (error) =>
   cn(
-    'w-full rounded-xl border bg-ink-900/60 px-4 py-3 text-sm text-white outline-none transition-colors',
-    'placeholder:text-slate-600 focus:border-accent/60 focus:ring-2 focus:ring-accent/30',
+    'w-full rounded-xl border bg-ink-800/80 px-4 py-3 text-sm text-white outline-none transition-colors',
+    'placeholder:text-slate-500 focus:border-primary/60 focus:ring-2 focus:ring-primary/30',
     error ? 'border-red-500/60' : 'border-white/10'
   );

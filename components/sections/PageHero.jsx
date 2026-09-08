@@ -15,7 +15,7 @@ export default function PageHero({ eyebrow, title, lead, children }) {
           {eyebrow ? (
             <Reveal>
               <span className="eyebrow mb-6">
-                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
                 {eyebrow}
               </span>
             </Reveal>

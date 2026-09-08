@@ -9,7 +9,7 @@ import Reveal from '@/components/ui/Reveal';
 
 export const metadata = {
   title: 'Careers',
-  description: 'Join FlashLLCTech — build agentic AI, automation, and full-stack products with a senior team.',
+  description: 'Join Nexus Dev Studio — build agentic AI, automation, and full-stack products with a senior team.',
 };
 
 const roles = [

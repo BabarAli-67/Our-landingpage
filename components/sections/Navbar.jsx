@@ -171,8 +171,10 @@ export default function Navbar() {
         <div className="hidden md:block">
           <LiquidGlassButton
             href={siteConfig.cta.href}
-            onClick={(e) => handleNav(e, siteConfig.cta.href)}
             size="sm"
+            {...(siteConfig.cta.external
+              ? { target: '_blank', rel: 'noopener noreferrer' }
+              : { onClick: (e) => handleNav(e, siteConfig.cta.href) })}
           >
             {siteConfig.cta.label}
           </LiquidGlassButton>
@@ -222,8 +224,10 @@ export default function Navbar() {
             <div className="mt-3 px-2">
               <LiquidGlassButton
                 href={siteConfig.cta.href}
-                onClick={(e) => handleNav(e, siteConfig.cta.href)}
                 className="w-full"
+                {...(siteConfig.cta.external
+                  ? { target: '_blank', rel: 'noopener noreferrer' }
+                  : { onClick: (e) => handleNav(e, siteConfig.cta.href) })}
               >
                 {siteConfig.cta.label}
               </LiquidGlassButton>

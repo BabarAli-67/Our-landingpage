@@ -1,27 +1,22 @@
 'use client';
 
-import Image from 'next/image';
 import { whyUs } from '@/lib/content';
 import ContainerScroll from '@/components/sections/ContainerScroll';
 import SectionHeading from '@/components/ui/SectionHeading';
 import Reveal from '@/components/ui/Reveal';
 
 /**
- * WhyUs — About / Why Us.
- * ------------------------------------------------------------------
- * Reuses the ContainerScroll "device tilts upright on scroll" animation as
- * the product visual, paired with a compact grid of differentiators.
+ * WhyUs — Why Choose Us (unified Web + Apps studio).
  */
 export default function WhyUs() {
   return (
-    <section id="about" className="section">
+    <section id="why-us" className="section">
       <div className="grid items-start gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
-        {/* Copy + differentiators */}
         <div>
           <SectionHeading
-            eyebrow="Why FlashLLCTech"
-            title="A senior studio for intelligent software"
-            lead="We’re a small, senior team that builds AI-native products end to end — from the first architecture call to production and beyond. No hand-offs, no bloat, no lock-in."
+            eyebrow="Why choose us"
+            title="One studio for websites and apps"
+            lead="Clients get a single team that ships both web and mobile — consistent quality, shared ownership, and one clear WhatsApp line for quotes."
           />
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
@@ -46,7 +41,6 @@ export default function WhyUs() {
           </div>
         </div>
 
-        {/* Reused ContainerScroll product visual */}
         <div className="lg:pt-4">
           <ContainerScroll image="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1400&q=75" />
         </div>
