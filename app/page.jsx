@@ -1,6 +1,7 @@
 import ServiceProjects from '@/components/sections/ServiceProjects';
 import WhyUs from '@/components/sections/WhyUs';
 import ProcessTimeline from '@/components/sections/ProcessTimeline';
+import Testimonials from '@/components/sections/Testimonials';
 import CTASection from '@/components/sections/CTASection';
 import ScrollExpansionHero from '@/components/sections/ScrollExpansionHero';
 import WhatsAppFloat from '@/components/sections/WhatsAppFloat';
@@ -8,15 +9,8 @@ import SectionHeading from '@/components/ui/SectionHeading';
 import { webProjects, appProjects } from '@/lib/content';
 
 /**
- * HomePage — single landing page (friend structure):
- *   Hero (Websites & Mobile Apps)
- *   → Web Development (best projects)
- *   → App Development (best projects)
- *   → Why Choose Us
- *   → Process
- *   → WhatsApp / Get Quote
- *
- * Funnel: Poster → Landing (trust) → WhatsApp (conversion)
+ * HomePage — single landing page:
+ *   Hero → Web → Apps → Why Us → Process → Reviews → WhatsApp CTA
  */
 export default function HomePage() {
   return (
@@ -53,6 +47,8 @@ export default function HomePage() {
         />
         <ProcessTimeline />
       </section>
+
+      <Testimonials />
 
       <CTASection id="contact" />
 

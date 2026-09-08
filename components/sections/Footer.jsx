@@ -14,7 +14,7 @@ const exploreLinks = [
   { label: 'Featured Work', href: '/#web' },
   { label: 'Why Us', href: '/#why-us' },
   { label: 'Our Process', href: '/#process' },
-  { label: 'Client Reviews', href: '/#contact' },
+  { label: 'Client Reviews', href: '/#reviews' },
 ];
 
 const socials = [
