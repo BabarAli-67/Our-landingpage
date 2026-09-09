@@ -9,8 +9,8 @@ import SectionHeading from '@/components/ui/SectionHeading';
 import { webProjects, appProjects } from '@/lib/content';
 
 /**
- * HomePage — single landing page:
- *   Hero → Web → Apps → Why Us → Process → Reviews → WhatsApp CTA
+ * HomePage — problem-solver landing:
+ *   Hero → Website problems → App problems → Why Us → Process → Reviews → CTA
  */
 export default function HomePage() {
   return (
@@ -19,20 +19,22 @@ export default function HomePage() {
 
       <ServiceProjects
         id="web"
-        eyebrow="Web Development"
-        title="Websites that convert and scale"
-        lead="Fast, modern web products — landing pages, SaaS, and portals engineered for performance."
+        eyebrow="Website problems"
+        title="Sites that were costing you money, fixed"
+        lead="Slow load times, dead conversion funnels, portals nobody could use — this is what we walked in to fix, and what we replaced it with."
         projects={webProjects}
         accent="primary"
+        askLabel="Got a similar problem? Ask us about it."
       />
 
       <ServiceProjects
         id="apps"
-        eyebrow="App Development"
-        title="Mobile apps people keep using"
-        lead="Cross-platform iOS & Android apps with native-grade feel and a maintainable codebase."
+        eyebrow="App problems"
+        title="Apps people actually keep using"
+        lead="A missing app, a clunky one, or a process still running on paper and group chats — we've turned each into something people open every day."
         projects={appProjects}
         accent="accent"
+        askLabel="Got a similar problem? Ask us about it."
       />
 
       <WhyUs />
@@ -41,8 +43,8 @@ export default function HomePage() {
         <SectionHeading
           align="center"
           eyebrow="How we work"
-          title="Simple path from chat to launch"
-          lead="Attention → trust → WhatsApp. Clear steps, weekly demos, no black boxes."
+          title={'From "here\'s what\'s broken" to launch'}
+          lead="Tell us the problem, we build the fix — in the open, in weekly demos."
           className="mb-16"
         />
         <ProcessTimeline />

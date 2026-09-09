@@ -11,7 +11,7 @@ import { usePrefersReducedMotion } from '@/hooks/useReducedMotion';
 
 /**
  * ScrollExpansionHero — pinned expand-on-scroll hero.
- * Focus: Websites & Mobile Apps → WhatsApp conversion.
+ * Problem-solver positioning → WhatsApp conversion.
  */
 export default function ScrollExpansionHero() {
   const ref = useRef(null);
@@ -62,13 +62,13 @@ export default function ScrollExpansionHero() {
 
           <h1 className="max-w-4xl text-balance text-5xl font-semibold leading-[1.02] tracking-tightest text-white sm:text-6xl lg:text-7xl">
             <motion.span style={reduced ? undefined : { x: leftX }} className="block">
-              Websites &amp;
+              Got a problem?
             </motion.span>
             <motion.span
               style={reduced ? undefined : { x: rightX }}
               className="block text-gradient"
             >
-              Mobile Apps.
+              We&apos;ll build the fix.
             </motion.span>
           </h1>
 
@@ -76,8 +76,9 @@ export default function ScrollExpansionHero() {
             style={reduced ? undefined : { opacity: titleOpacity }}
             className="mt-6 max-w-xl text-lg text-slate-400"
           >
-            One team for high-converting websites and polished mobile apps —
-            from first sketch to launch.
+            Slow site losing customers. No app for a process stuck on spreadsheets.
+            A launch that keeps slipping. We diagnose it, then ship it — website or
+            app, one team, start to finish.
           </motion.p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
@@ -88,16 +89,16 @@ export default function ScrollExpansionHero() {
               rel="noopener noreferrer"
             >
               <MessageCircle className="h-4 w-4" />
-              Get a Quote
+              Tell us the problem
             </LiquidGlassButton>
             <LiquidGlassButton href="/#web" size="lg" variant="ghost">
-              See our work
+              See what we&apos;ve fixed
               <ArrowRight className="h-4 w-4" />
             </LiquidGlassButton>
           </div>
 
           <span className="mt-14 text-xs uppercase tracking-[0.3em] text-slate-500">
-            Scroll to explore
+            Scroll to see the proof
           </span>
         </motion.div>
 
@@ -132,11 +133,11 @@ export default function ScrollExpansionHero() {
             className="absolute inset-x-0 bottom-0 flex flex-col items-center px-6 pb-16 text-center gpu"
           >
             <h2 className="max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-5xl">
-              Web &amp; mobile —{' '}
-              <span className="text-gradient">built as one product.</span>
+              Every project here started as{' '}
+              <span className="text-gradient">someone&apos;s problem.</span>
             </h2>
             <p className="mt-4 max-w-xl text-slate-300">
-              Trust the work. Get the quote. Ship on WhatsApp.
+              Tell us what&apos;s broken. Get a plan. Ship it on WhatsApp.
             </p>
           </motion.div>
         </motion.div>

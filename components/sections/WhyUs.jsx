@@ -15,8 +15,8 @@ export default function WhyUs() {
         <div>
           <SectionHeading
             eyebrow="Why choose us"
-            title="One studio for websites and apps"
-            lead="Clients get a single team that ships both web and mobile — consistent quality, shared ownership, and one clear WhatsApp line for quotes."
+            title="You bring the problem. We own the fix."
+            lead="No account managers, no vague roadmaps — just two people who scope it, build it, and stay after launch."
           />
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2">

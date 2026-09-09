@@ -10,8 +10,8 @@ import { siteConfig } from '@/lib/site.config';
 export default function CTASection({
   id,
   eyebrow = 'Get a quote',
-  title = 'Ready to build your website or app?',
-  lead = 'Message us on WhatsApp — tell us what you need and we’ll reply with a clear path and quote.',
+  title = "What's the problem you need solved?",
+  lead = "Message us on WhatsApp — tell us what's broken and we'll reply with a clear path and a quote.",
 }) {
   return (
     <section id={id} className="section">

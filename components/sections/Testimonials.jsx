@@ -15,8 +15,8 @@ export default function Testimonials() {
       <SectionHeading
         align="center"
         eyebrow="Client reviews"
-        title="Trusted on Fiverr and beyond"
-        lead="Real feedback from Fiverr clients and companies we’ve worked with directly."
+        title="People who brought us a problem"
+        lead="Feedback from Fiverr clients and companies we've worked with directly."
         className="mb-12"
       />
 
@@ -58,10 +58,11 @@ export default function Testimonials() {
 
               <div className="mt-5 flex items-end justify-between gap-3 border-t border-white/10 pt-4">
                 <div>
-                  <p className="text-sm font-semibold text-white">
-                    {review.company}
-                  </p>
-                  <p className="text-xs text-slate-400">{review.role}</p>
+                  <p className="text-sm font-semibold text-white">{review.name}</p>
+                  <p className="text-xs text-accent-soft">{review.company}</p>
+                  {review.country ? (
+                    <p className="text-xs text-slate-400">{review.country}</p>
+                  ) : null}
                 </div>
                 {review.website ? (
                   <a
@@ -83,7 +84,7 @@ export default function Testimonials() {
       <Reveal delay={0.15}>
         <div className="mt-12 flex flex-col items-center gap-4 text-center">
           <p className="max-w-md text-sm text-slate-400">
-            Prefer to hire through Fiverr? See our profile, ratings, and past gigs.
+            Prefer to hire through Fiverr? See our profile, ratings, and past work.
           </p>
           <LiquidGlassButton
             href={siteConfig.fiverrUrl}

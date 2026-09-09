@@ -3,13 +3,10 @@ import { Target, Layers, HeartHandshake, Gauge } from 'lucide-react';
 import PageHero from '@/components/sections/PageHero';
 import ContainerScroll from '@/components/sections/ContainerScroll';
 import StatsBand from '@/components/sections/StatsBand';
-import CircularVideoTestimonials from '@/components/sections/CircularVideoTestimonials';
 import CTASection from '@/components/sections/CTASection';
 import SectionHeading from '@/components/ui/SectionHeading';
 import SpotlightCard from '@/components/ui/SpotlightCard';
 import Reveal from '@/components/ui/Reveal';
-
-import { testimonials } from '@/lib/content';
 
 export const metadata = {
   title: 'About',
@@ -76,16 +73,6 @@ export default function AboutPage() {
             );
           })}
         </div>
-      </section>
-
-      <section className="section grain pt-0">
-        <SectionHeading
-          align="center"
-          eyebrow="Client reviews"
-          title="The people we build with"
-          className="mb-16"
-        />
-        <CircularVideoTestimonials items={testimonials} />
       </section>
 
       <CTASection

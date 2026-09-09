@@ -4,8 +4,8 @@ import { siteConfig } from '@/lib/site.config';
 import LiquidGlassButton from '@/components/ui/LiquidGlassButton';
 
 const serviceLinks = [
-  { label: 'Custom Web Apps', href: '/#web' },
-  { label: 'Mobile Applications', href: '/#apps' },
+  { label: 'Custom Web Builds', href: '/#web' },
+  { label: 'Mobile Apps', href: '/#apps' },
   { label: 'UI/UX & Prototyping', href: '/#why-us' },
   { label: 'Backend & APIs', href: '/#process' },
 ];
@@ -138,7 +138,7 @@ export default function Footer() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
               </span>
-              Available for projects
+              Available for new problems
             </div>
           </div>
         </div>

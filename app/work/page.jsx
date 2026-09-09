@@ -3,13 +3,12 @@ import { ArrowUpRight } from 'lucide-react';
 
 import PageHero from '@/components/sections/PageHero';
 import SqueezeCarousel from '@/components/sections/SqueezeCarousel';
-import CircularVideoTestimonials from '@/components/sections/CircularVideoTestimonials';
 import CTASection from '@/components/sections/CTASection';
 import SectionHeading from '@/components/ui/SectionHeading';
 import WaterRippleImage from '@/components/ui/WaterRippleImage';
 import Reveal from '@/components/ui/Reveal';
 
-import { caseStudies, testimonials } from '@/lib/content';
+import { caseStudies } from '@/lib/content';
 
 export const metadata = {
   title: 'Work',
@@ -65,16 +64,6 @@ export default function WorkPage() {
             </Reveal>
           ))}
         </div>
-      </section>
-
-      <section className="section grain pt-0">
-        <SectionHeading
-          align="center"
-          eyebrow="In their words"
-          title="Client video reviews"
-          className="mb-16"
-        />
-        <CircularVideoTestimonials items={testimonials} />
       </section>
 
       <CTASection />

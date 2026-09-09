@@ -8,8 +8,7 @@ import { siteConfig } from '@/lib/site.config';
 import { cn } from '@/lib/utils';
 
 /**
- * ServiceProjects — portfolio grid for one service track (Web or Apps).
- * One job: show 2–3 best projects so clients trust the work.
+ * ServiceProjects — portfolio grid framed around the problem we solved.
  */
 export default function ServiceProjects({
   id,
@@ -18,6 +17,7 @@ export default function ServiceProjects({
   lead,
   projects,
   accent = 'primary',
+  askLabel = 'Got a similar problem? Ask us about it.',
 }) {
   return (
     <section id={id} className="section">
@@ -58,7 +58,14 @@ export default function ServiceProjects({
 
               <div className="flex flex-1 flex-col gap-3 p-5">
                 <h3 className="text-lg font-semibold text-white">{project.title}</h3>
-                <p className="text-sm leading-relaxed text-slate-400">{project.summary}</p>
+                {project.problem ? (
+                  <p className="text-sm italic leading-relaxed text-slate-400">
+                    Problem: {project.problem}
+                  </p>
+                ) : null}
+                <p className="text-sm leading-relaxed text-slate-300">
+                  {project.summary}
+                </p>
                 <ul className="mt-auto flex flex-wrap gap-2 pt-2">
                   {project.tags.map((tag) => (
                     <li
@@ -83,7 +90,7 @@ export default function ServiceProjects({
             rel="noopener noreferrer"
             className="inline-flex cursor-pointer items-center gap-2 text-sm font-medium text-accent-soft transition-colors hover:text-white"
           >
-            Ask about a similar project
+            {askLabel}
             <ArrowUpRight className="h-4 w-4" />
           </a>
         </div>
