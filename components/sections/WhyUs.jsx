@@ -16,7 +16,7 @@ export default function WhyUs() {
           <SectionHeading
             eyebrow="Why choose us"
             title="You bring the problem. We own the fix."
-            lead="No account managers, no vague roadmaps — just two people who scope it, build it, and stay after launch."
+            lead="No account managers, no vague roadmaps — just a small team that scopes it, builds it, and stays after launch."
           />
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2">

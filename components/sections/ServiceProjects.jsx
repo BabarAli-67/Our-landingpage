@@ -37,18 +37,26 @@ export default function ServiceProjects({
                 'transition-colors duration-300 hover:border-white/20'
               )}
             >
-              <div className="relative aspect-[16/10] overflow-hidden">
+              <div className="relative aspect-[16/10] overflow-hidden bg-ink-700">
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                  unoptimized={project.image?.endsWith('.svg')}
+                  className={cn(
+                    'transition-transform duration-500 group-hover:scale-[1.03]',
+                    project.imageFit === 'contain'
+                      ? 'object-contain object-top bg-ink-900'
+                      : project.imagePosition === 'top'
+                        ? 'object-cover object-top'
+                        : 'object-cover object-center'
+                  )}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/20 to-transparent" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/20 to-transparent" />
                 <span
                   className={cn(
-                    'absolute bottom-3 left-3 rounded-full px-3 py-1 text-xs font-medium text-white backdrop-blur-md',
+                    'absolute bottom-3 left-3 max-w-[90%] rounded-full px-3 py-1 text-xs font-medium text-white backdrop-blur-md',
                     accent === 'accent' ? 'bg-accent/30' : 'bg-primary/30'
                   )}
                 >
@@ -76,6 +84,17 @@ export default function ServiceProjects({
                     </li>
                   ))}
                 </ul>
+                {project.website ? (
+                  <a
+                    href={project.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-1 inline-flex items-center gap-1.5 text-sm font-medium text-accent-soft transition-colors hover:text-white"
+                  >
+                    {project.websiteLabel || 'Live preview'}
+                    <ArrowUpRight className="h-3.5 w-3.5" />
+                  </a>
+                ) : null}
               </div>
             </article>
           </Reveal>
