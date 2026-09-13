@@ -22,8 +22,8 @@ export default function SpotlightCard({ children, className, glow = 'primary' })
 
   const ring =
     glow === 'accent'
-      ? 'rgba(34,211,238,0.2)'
-      : 'rgba(255,107,74,0.2)';
+      ? 'rgba(229,193,88,0.22)'
+      : 'rgba(212,175,55,0.22)';
 
   return (
     <div
@@ -32,7 +32,7 @@ export default function SpotlightCard({ children, className, glow = 'primary' })
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className={cn(
-        'group relative overflow-hidden rounded-2xl border border-white/10 bg-ink-800/90 p-6 backdrop-blur-md transition-colors duration-300 hover:border-white/20 gpu',
+        'group relative overflow-hidden rounded-2xl border border-primary/15 bg-ink-800/95 p-6 backdrop-blur-md transition-colors duration-300 hover:border-primary/35 gpu',
         className
       )}
     >

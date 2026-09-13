@@ -14,9 +14,9 @@ export default function Testimonials() {
     <section id="reviews" className="section">
       <SectionHeading
         align="center"
-        eyebrow="Client reviews"
-        title="People who brought us a problem"
-        lead="Feedback from Fiverr clients and companies we've worked with directly."
+        eyebrow="Client proof"
+        title="Teams that shipped with us"
+        lead="Feedback from Fiverr clients and companies that trusted Nexus Dev Studio with production builds."
         className="mb-12"
       />
 
@@ -69,7 +69,7 @@ export default function Testimonials() {
                     href={review.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-white/10 bg-ink-900 px-3 py-1.5 text-xs text-slate-300 transition-colors hover:text-cyan-400"
+                    className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-primary/20 bg-ink-900 px-3 py-1.5 font-mono text-xs text-slate-300 transition-colors hover:text-primary"
                   >
                     {review.websiteLabel || review.website}
                     <ArrowUpRight className="h-3 w-3" />
@@ -84,7 +84,7 @@ export default function Testimonials() {
       <Reveal delay={0.15}>
         <div className="mt-12 flex flex-col items-center gap-4 text-center">
           <p className="max-w-md text-sm text-slate-400">
-            Prefer to hire through Fiverr? See our profile, ratings, and past work.
+            Prefer to engage through Fiverr? Review our profile, ratings, and delivered work.
           </p>
           <LiquidGlassButton
             href={siteConfig.fiverrUrl}

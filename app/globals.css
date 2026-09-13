@@ -3,12 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --font-inter: 'Inter', system-ui, sans-serif;
-  --color-bg: #0a0f1d;
-  --color-surface: #111a33;
-  --color-surface-raised: #162040;
-  --color-primary: #ff6b4a;
-  --color-accent: #22d3ee;
+  --font-jakarta: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-jetbrains: 'JetBrains Mono', ui-monospace, monospace;
+  --color-bg: #0F0F11;
+  --color-surface: #1C1C1F;
+  --color-surface-raised: #242428;
+  --color-primary: #D4AF37;
+  --color-secondary: #E5C158;
+  --color-tertiary: #C59827;
   --color-text: #ffffff;
   --color-muted: #94a3b8;
   color-scheme: dark;
@@ -31,14 +33,14 @@
 
   body {
     @apply bg-ink-950 text-slate-400 antialiased font-sans;
-    /* Ambient coral + teal flares on deep navy */
+    /* Ambient gold flares on obsidian */
     background-image: radial-gradient(
         ellipse 90% 55% at 50% -8%,
-        rgba(255, 107, 74, 0.14),
+        rgba(212, 175, 55, 0.12),
         transparent 55%
       ),
-      radial-gradient(ellipse 55% 40% at 100% 8%, rgba(34, 211, 238, 0.1), transparent 60%),
-      radial-gradient(ellipse 50% 45% at 0% 30%, rgba(56, 189, 248, 0.06), transparent 60%);
+      radial-gradient(ellipse 55% 40% at 100% 8%, rgba(229, 193, 88, 0.08), transparent 60%),
+      radial-gradient(ellipse 50% 45% at 0% 30%, rgba(197, 152, 39, 0.06), transparent 60%);
     background-attachment: fixed;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
@@ -46,8 +48,8 @@
   }
 
   ::selection {
-    background: rgba(255, 107, 74, 0.35);
-    color: #fff;
+    background: rgba(212, 175, 55, 0.35);
+    color: #0F0F11;
   }
 
   @media (pointer: fine) {
@@ -55,12 +57,12 @@
       width: 10px;
     }
     ::-webkit-scrollbar-track {
-      background: #0a0f1d;
+      background: #0F0F11;
     }
     ::-webkit-scrollbar-thumb {
-      background: linear-gradient(#ff6b4a, #22d3ee);
+      background: linear-gradient(#C59827, #D4AF37);
       border-radius: 999px;
-      border: 2px solid #0a0f1d;
+      border: 2px solid #0F0F11;
     }
   }
 
@@ -83,18 +85,18 @@
   }
 
   .eyebrow {
-    @apply inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-ink-800/80
-      px-3 py-1 text-xs font-medium uppercase tracking-[0.22em] text-slate-400
-      shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)];
+    @apply inline-flex items-center gap-2 rounded-full border border-primary/20 bg-ink-800/90
+      px-3 py-1 font-mono text-xs font-medium uppercase tracking-[0.22em] text-slate-400
+      shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)];
   }
 
   .h-display {
-    @apply text-4xl font-semibold leading-[1.03] tracking-tightest text-white sm:text-5xl lg:text-6xl;
+    @apply font-display text-4xl font-semibold leading-[1.03] tracking-tightest text-white sm:text-5xl lg:text-6xl;
   }
 
-  /* Premium tactile card surface — dark blue / slate */
+  /* Obsidian card surface */
   .card-premium {
-    @apply relative rounded-2xl border border-white/[0.08] bg-ink-800/90 shadow-card backdrop-blur-md;
+    @apply relative rounded-2xl border border-primary/15 bg-ink-800/95 shadow-card backdrop-blur-md;
   }
 
   /* Fine grain overlay — static SVG, GPU-cheap */
@@ -103,12 +105,12 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.04;
+    opacity: 0.035;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 }
 
-/* Chromatic-aberration edge for Liquid Glass buttons (coral + teal) */
+/* Gold edge for Liquid Glass buttons */
 .liquid-edge {
   position: relative;
   isolation: isolate;
@@ -121,10 +123,10 @@
   padding: 1px;
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.6),
-    rgba(34, 211, 238, 0.45) 40%,
-    rgba(255, 107, 74, 0.45) 60%,
-    rgba(255, 255, 255, 0.25)
+    rgba(255, 255, 255, 0.45),
+    rgba(229, 193, 88, 0.55) 40%,
+    rgba(212, 175, 55, 0.55) 60%,
+    rgba(255, 255, 255, 0.2)
   );
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;

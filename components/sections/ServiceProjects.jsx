@@ -17,7 +17,7 @@ export default function ServiceProjects({
   lead,
   projects,
   accent = 'primary',
-  askLabel = 'Got a similar problem? Ask us about it.',
+  askLabel = 'Building something similar? Brief us.',
 }) {
   return (
     <section id={id} className="section">
@@ -33,8 +33,8 @@ export default function ServiceProjects({
           <Reveal key={project.id} delay={i * 0.08}>
             <article
               className={cn(
-                'group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-ink-800/90',
-                'transition-colors duration-300 hover:border-white/20'
+                'group relative flex h-full flex-col overflow-hidden rounded-2xl border border-primary/15 bg-ink-800/95',
+                'transition-colors duration-300 hover:border-primary/35'
               )}
             >
               <div className="relative aspect-[16/10] overflow-hidden bg-ink-700">
@@ -78,7 +78,7 @@ export default function ServiceProjects({
                   {project.tags.map((tag) => (
                     <li
                       key={tag}
-                      className="rounded-md bg-white/[0.04] px-2 py-1 text-[11px] uppercase tracking-wider text-slate-400 ring-1 ring-white/10"
+                      className="rounded-md bg-white/[0.04] px-2 py-1 font-mono text-[11px] uppercase tracking-wider text-slate-400 ring-1 ring-primary/15"
                     >
                       {tag}
                     </li>
@@ -89,7 +89,7 @@ export default function ServiceProjects({
                     href={project.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-1 inline-flex items-center gap-1.5 text-sm font-medium text-accent-soft transition-colors hover:text-white"
+                    className="mt-1 inline-flex items-center gap-1.5 font-mono text-sm font-medium text-primary transition-colors hover:text-primary-soft"
                   >
                     {project.websiteLabel || 'Live preview'}
                     <ArrowUpRight className="h-3.5 w-3.5" />
@@ -107,7 +107,7 @@ export default function ServiceProjects({
             href={siteConfig.whatsappQuoteUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex cursor-pointer items-center gap-2 text-sm font-medium text-accent-soft transition-colors hover:text-white"
+            className="inline-flex cursor-pointer items-center gap-2 text-sm font-medium text-primary transition-colors hover:text-primary-soft"
           >
             {askLabel}
             <ArrowUpRight className="h-4 w-4" />

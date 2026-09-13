@@ -8,65 +8,66 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        /* Deep navy / midnight blue ramp — page background & surfaces */
+        /* Obsidian — near-black neutrals for bg, cards, surfaces */
         ink: {
-          950: '#0a0f1d',
-          900: '#0b1329',
-          800: '#111a33',
-          700: '#162040',
-          600: '#1c2a4d',
-          500: '#243560',
+          950: '#0F0F11',
+          900: '#161618',
+          800: '#1C1C1F',
+          700: '#242428',
+          600: '#2E2E33',
+          500: '#3A3A40',
         },
-        /* Bright coral / orange — primary accent (headings & highlights) */
+        /* Primary gold — #D4AF37 */
         primary: {
-          DEFAULT: '#ff6b4a',
-          soft: '#ff8a6e',
-          deep: '#e04f2f',
+          DEFAULT: '#D4AF37',
+          soft: '#E5C158',
+          deep: '#C59827',
         },
-        /* Soft teal / cyan — secondary accent */
+        /* Warm gold secondary */
         accent: {
-          DEFAULT: '#22d3ee',
-          soft: '#67e8f9',
-          deep: '#0891b2',
+          DEFAULT: '#E5C158',
+          soft: '#F0D78A',
+          deep: '#C59827',
         },
-        /* Soft sky highlight */
+        /* Deep / tertiary gold */
         ember: {
-          DEFAULT: '#38bdf8',
-          soft: '#7dd3fc',
+          DEFAULT: '#C59827',
+          soft: '#D4AF37',
         },
         glass: {
-          border: 'rgba(255,255,255,0.08)',
-          fill: 'rgba(17,26,51,0.72)',
+          border: 'rgba(212,175,55,0.18)',
+          fill: 'rgba(28,28,31,0.85)',
         },
       },
       fontFamily: {
-        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
-        display: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-jakarta)', 'system-ui', 'sans-serif'],
+        display: ['var(--font-jakarta)', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-jetbrains)', 'ui-monospace', 'monospace'],
       },
       letterSpacing: {
         tightest: '-0.045em',
       },
       backgroundImage: {
         'grid-glow':
-          'linear-gradient(to right, rgba(255,107,74,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,107,74,0.06) 1px, transparent 1px)',
+          'linear-gradient(to right, rgba(212,175,55,0.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(212,175,55,0.07) 1px, transparent 1px)',
         'grid-fine':
           'linear-gradient(to right, rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.035) 1px, transparent 1px)',
         'radial-fade':
-          'radial-gradient(ellipse 80% 60% at 50% -10%, rgba(255,107,74,0.22), transparent 60%)',
+          'radial-gradient(ellipse 80% 60% at 50% -10%, rgba(212,175,55,0.18), transparent 60%)',
         aurora:
-          'linear-gradient(110deg, #ff6b4a 0%, #22d3ee 45%, #38bdf8 70%, #ff6b4a 100%)',
+          'linear-gradient(110deg, #C59827 0%, #D4AF37 40%, #E5C158 70%, #C59827 100%)',
         liquid:
-          'conic-gradient(from 180deg at 50% 50%, #ff6b4a 0deg, #22d3ee 120deg, #38bdf8 230deg, #ff6b4a 360deg)',
+          'conic-gradient(from 180deg at 50% 50%, #C59827 0deg, #D4AF37 120deg, #E5C158 230deg, #C59827 360deg)',
         'chrome-edge':
-          'linear-gradient(135deg, rgba(255,255,255,0.55), rgba(34,211,238,0.35) 40%, rgba(255,107,74,0.35) 60%, rgba(255,255,255,0.35))',
+          'linear-gradient(135deg, rgba(255,255,255,0.45), rgba(229,193,88,0.4) 40%, rgba(212,175,55,0.45) 60%, rgba(255,255,255,0.25))',
       },
       boxShadow: {
-        glow: '0 0 44px -10px rgba(255,107,74,0.55)',
-        'glow-accent': '0 0 44px -10px rgba(34,211,238,0.45)',
+        glow: '0 0 44px -10px rgba(212,175,55,0.45)',
+        'glow-accent': '0 0 44px -10px rgba(229,193,88,0.4)',
         'glass-inset':
-          'inset 0 1px 0 0 rgba(255,255,255,0.10), inset 0 -1px 0 0 rgba(0,0,0,0.4)',
-        card: 'inset 0 1px 0 0 rgba(255,255,255,0.06), 0 1px 2px 0 rgba(0,0,0,0.4), 0 16px 48px -24px rgba(0,0,0,0.8)',
-        elevate: '0 32px 90px -28px rgba(0,0,0,0.85)',
+          'inset 0 1px 0 0 rgba(255,255,255,0.08), inset 0 -1px 0 0 rgba(0,0,0,0.45)',
+        card: 'inset 0 1px 0 0 rgba(255,255,255,0.05), 0 1px 2px 0 rgba(0,0,0,0.45), 0 16px 48px -24px rgba(0,0,0,0.85)',
+        elevate: '0 32px 90px -28px rgba(0,0,0,0.9)',
       },
       backgroundSize: {
         grid: '44px 44px',
@@ -118,18 +119,18 @@ module.exports = {
       addUtilities({
         '.text-gradient': {
           background:
-            'linear-gradient(120deg, #FFFFFF 0%, #ff6b4a 52%, #22d3ee 100%)',
+            'linear-gradient(120deg, #FFFFFF 0%, #E5C158 45%, #D4AF37 100%)',
           '-webkit-background-clip': 'text',
           'background-clip': 'text',
           color: 'transparent',
         },
         '.glass': {
-          background: 'rgba(17,26,51,0.72)',
-          'backdrop-filter': 'blur(16px) saturate(150%)',
-          '-webkit-backdrop-filter': 'blur(16px) saturate(150%)',
-          border: '1px solid rgba(255,255,255,0.08)',
+          background: 'rgba(28,28,31,0.82)',
+          'backdrop-filter': 'blur(16px) saturate(140%)',
+          '-webkit-backdrop-filter': 'blur(16px) saturate(140%)',
+          border: '1px solid rgba(212,175,55,0.16)',
           'box-shadow':
-            'inset 0 1px 0 0 rgba(255,255,255,0.08), 0 8px 32px -12px rgba(0,0,0,0.7)',
+            'inset 0 1px 0 0 rgba(255,255,255,0.06), 0 8px 32px -12px rgba(0,0,0,0.75)',
         },
         '.gpu': {
           transform: 'translate3d(0,0,0)',

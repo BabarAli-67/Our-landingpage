@@ -1,16 +1,22 @@
-import { Inter } from 'next/font/google';
+import { Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import { siteConfig } from '@/lib/site.config';
 import Navbar from '@/components/sections/Navbar';
 import Footer from '@/components/sections/Footer';
 import SmoothScrollProvider from '@/components/providers/SmoothScrollProvider';
 
-// self-hosted, subset, swap — zero layout shift, one font file.
-const inter = Inter({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-inter',
+  variable: '--font-jakarta',
   weight: ['300', '400', '500', '600', '700'],
+});
+
+const jetbrains = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-jetbrains',
+  weight: ['400', '500', '600'],
 });
 
 export const metadata = {
@@ -32,15 +38,19 @@ export const metadata = {
 };
 
 export const viewport = {
-  themeColor: '#0a0f1d',
+  themeColor: '#0F0F11',
   width: 'device-width',
   initialScale: 1,
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={inter.variable} suppressHydrationWarning>
-      <body className="min-h-screen">
+    <html
+      lang="en"
+      className={`${jakarta.variable} ${jetbrains.variable}`}
+      suppressHydrationWarning
+    >
+      <body className="min-h-screen font-sans">
         <SmoothScrollProvider>
           <Navbar />
           <main id="main">{children}</main>

@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
+import Image from 'next/image';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { ArrowRight, MessageCircle, Sparkles } from 'lucide-react';
 import { siteConfig } from '@/lib/site.config';
@@ -11,7 +12,7 @@ import { usePrefersReducedMotion } from '@/hooks/useReducedMotion';
 
 /**
  * ScrollExpansionHero — pinned expand-on-scroll hero.
- * Problem-solver positioning → WhatsApp conversion.
+ * Banner expands from framed card to full-bleed on scroll.
  */
 export default function ScrollExpansionHero() {
   const ref = useRef(null);
@@ -62,13 +63,13 @@ export default function ScrollExpansionHero() {
 
           <h1 className="max-w-4xl text-balance text-5xl font-semibold leading-[1.02] tracking-tightest text-white sm:text-6xl lg:text-7xl">
             <motion.span style={reduced ? undefined : { x: leftX }} className="block">
-              Got a problem?
+              AI-powered products.
             </motion.span>
             <motion.span
               style={reduced ? undefined : { x: rightX }}
               className="block text-gradient"
             >
-              We&apos;ll build the fix.
+              Enterprise-grade systems.
             </motion.span>
           </h1>
 
@@ -76,9 +77,9 @@ export default function ScrollExpansionHero() {
             style={reduced ? undefined : { opacity: titleOpacity }}
             className="mt-6 max-w-xl text-lg text-slate-400"
           >
-            Slow site losing customers. No app for a process stuck on spreadsheets.
-            A launch that keeps slipping. We diagnose it, then ship it — website or
-            app, one team, start to finish.
+            We engineer intelligent digital products — custom LLM & agentic
+            integrations, automated workflows, and high-performance full-stack
+            platforms built to scale.
           </motion.p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
@@ -89,16 +90,16 @@ export default function ScrollExpansionHero() {
               rel="noopener noreferrer"
             >
               <MessageCircle className="h-4 w-4" />
-              Tell us the problem
+              Start a build
             </LiquidGlassButton>
             <LiquidGlassButton href="/#web" size="lg" variant="ghost">
-              See what we&apos;ve fixed
+              View our systems
               <ArrowRight className="h-4 w-4" />
             </LiquidGlassButton>
           </div>
 
           <span className="mt-14 text-xs uppercase tracking-[0.3em] text-slate-500">
-            Scroll to see the proof
+            Scroll to explore the work
           </span>
         </motion.div>
 
@@ -110,20 +111,14 @@ export default function ScrollExpansionHero() {
           }
           className="absolute inset-0 z-10 overflow-hidden border border-white/[0.08] shadow-elevate gpu"
         >
-          <video
-            className="h-full w-full object-cover"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            poster="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1600&q=70"
-          >
-            <source
-              src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4"
-              type="video/mp4"
-            />
-          </video>
+          <Image
+            src="/assets/banner-image.jpg"
+            alt="Nexus Dev Studio AI Platform Banner"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
+          />
 
           <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/40 to-ink-950/10" />
           <div className="pointer-events-none absolute inset-0 bg-radial-fade opacity-70" />
@@ -133,11 +128,11 @@ export default function ScrollExpansionHero() {
             className="absolute inset-x-0 bottom-0 flex flex-col items-center px-6 pb-16 text-center gpu"
           >
             <h2 className="max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-5xl">
-              Every project here started as{' '}
-              <span className="text-gradient">someone&apos;s problem.</span>
+              From intelligence to infrastructure —{' '}
+              <span className="text-gradient">shipped as one system.</span>
             </h2>
             <p className="mt-4 max-w-xl text-slate-300">
-              Tell us what&apos;s broken. Get a plan. Ship it on WhatsApp.
+              Brief us on WhatsApp. Get architecture. Go to production.
             </p>
           </motion.div>
         </motion.div>

@@ -9,14 +9,14 @@ import { siteConfig } from '@/lib/site.config';
  */
 export default function CTASection({
   id,
-  eyebrow = 'Get a quote',
-  title = "What's the problem you need solved?",
-  lead = "Message us on WhatsApp — tell us what's broken and we'll reply with a clear path and a quote.",
+  eyebrow = 'Start a build',
+  title = 'Ready to engineer your next intelligent system?',
+  lead = 'Message us on WhatsApp — share the product, workflow, or platform goal. We’ll reply with a clear architecture path and quote.',
 }) {
   return (
     <section id={id} className="section">
       <Reveal>
-        <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-ink-800/80 px-6 py-20 text-center backdrop-blur-xl sm:px-16">
+        <div className="relative overflow-hidden rounded-[32px] border border-primary/20 bg-ink-800/90 px-6 py-20 text-center backdrop-blur-xl sm:px-16">
           <AmbientLiquid intensity="high" />
           <div className="pointer-events-none absolute inset-0 bg-grid-glow bg-grid [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000,transparent)]" />
 
@@ -36,7 +36,7 @@ export default function CTASection({
                 rel="noopener noreferrer"
               >
                 <MessageCircle className="h-4 w-4" />
-                WhatsApp us
+                Brief us on WhatsApp
               </LiquidGlassButton>
               <LiquidGlassButton
                 href={siteConfig.whatsappUrl}

@@ -9,8 +9,8 @@ import SectionHeading from '@/components/ui/SectionHeading';
 import { webProjects, appProjects } from '@/lib/content';
 
 /**
- * HomePage — problem-solver landing:
- *   Hero → Website problems → App problems → Why Us → Process → Reviews → CTA
+ * HomePage — AI engineering & full-stack studio landing:
+ *   Hero → Platforms → Apps → Why Us → Process → Reviews → CTA
  */
 export default function HomePage() {
   return (
@@ -19,22 +19,22 @@ export default function HomePage() {
 
       <ServiceProjects
         id="web"
-        eyebrow="Website problems"
-        title="Sites that were costing you money, fixed"
-        lead="Slow load times, dead conversion funnels, portals nobody could use — this is what we walked in to fix, and what we replaced it with."
+        eyebrow="Intelligent platforms"
+        title="High-performance systems that compound advantage"
+        lead="From AI-assisted products to enterprise web architectures — platforms engineered for speed, automation, and measurable business lift."
         projects={webProjects}
         accent="primary"
-        askLabel="Got a similar problem? Ask us about it."
+        askLabel="Building something similar? Brief us."
       />
 
       <ServiceProjects
         id="apps"
-        eyebrow="App problems"
-        title="Apps people actually keep using"
-        lead="A missing app, a clunky one, or a process still running on paper and group chats — we've turned each into something people open every day."
+        eyebrow="Mobile & product apps"
+        title="Apps built for real usage, not demos"
+        lead="Cross-platform Flutter products with production auth, realtime data, payments, and ops dashboards — designed to ship and scale."
         projects={appProjects}
         accent="accent"
-        askLabel="Got a similar problem? Ask us about it."
+        askLabel="Need a production mobile build? Talk to us."
       />
 
       <WhyUs />
@@ -42,9 +42,9 @@ export default function HomePage() {
       <section id="process" className="section">
         <SectionHeading
           align="center"
-          eyebrow="How we work"
-          title={'From "here\'s what\'s broken" to launch'}
-          lead="Tell us the problem, we build the fix — in the open, in weekly demos."
+          eyebrow="Engagement model"
+          title="From discovery to production intelligence"
+          lead="A senior engineering loop — architecture first, AI & stack implementation next, then deployment and continuous optimization."
           className="mb-16"
         />
         <ProcessTimeline />

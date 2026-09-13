@@ -2,9 +2,10 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Zap } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { siteConfig } from '@/lib/site.config';
 import { cn } from '@/lib/utils';
 import LiquidGlassButton from '@/components/ui/LiquidGlassButton';
@@ -131,12 +132,16 @@ export default function Navbar() {
           href="/"
           onClick={goHome}
           aria-label={`${siteConfig.name} — back to top`}
-          className="flex items-center gap-2 rounded-full px-2 py-1 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+          className="flex items-center rounded-full px-1 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
         >
-          <span className="grid h-8 w-8 place-items-center rounded-lg bg-aurora bg-aurora animate-aurora shadow-glow">
-            <Zap className="h-4 w-4 text-white" />
-          </span>
-          <span className="text-sm font-semibold tracking-tight">{siteConfig.name}</span>
+          <Image
+            src={siteConfig.logo}
+            alt={siteConfig.name}
+            width={160}
+            height={40}
+            priority
+            className="h-9 w-auto object-contain"
+          />
         </Link>
 
         {/* Desktop links */}

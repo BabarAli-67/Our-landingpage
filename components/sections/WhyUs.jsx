@@ -12,11 +12,12 @@ export default function WhyUs() {
   return (
     <section id="why-us" className="section">
       <div className="grid items-start gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
-        <div>
+        {/* Left — scrolls with page flow */}
+        <div className="min-w-0">
           <SectionHeading
-            eyebrow="Why choose us"
-            title="You bring the problem. We own the fix."
-            lead="No account managers, no vague roadmaps — just a small team that scopes it, builds it, and stays after launch."
+            eyebrow="Why Nexus Dev Studio"
+            title="Intelligence in the product. Engineering in the foundation."
+            lead="We eliminate operational bottlenecks with custom AI integrations and scalable full-stack systems — giving clients an unfair competitive advantage."
           />
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
@@ -41,8 +42,12 @@ export default function WhyUs() {
           </div>
         </div>
 
-        <div className="lg:pt-4">
-          <ContainerScroll image="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1400&q=75" />
+        {/* Right — pinned while left content scrolls; releases at section end */}
+        <div className="h-fit min-w-0 lg:sticky lg:top-28 lg:self-start">
+          <ContainerScroll
+            image="/assets/why-us.jpg"
+            imageAlt="Nexus Dev Studio — why us platform preview"
+          />
         </div>
       </div>
     </section>

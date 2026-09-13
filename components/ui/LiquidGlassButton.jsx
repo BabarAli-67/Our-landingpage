@@ -53,10 +53,10 @@ export default function LiquidGlassButton({
 
   const variants = {
     primary:
-      'bg-primary/20 text-white shadow-glow hover:bg-primary/30',
+      'bg-primary text-ink-950 shadow-glow hover:bg-primary-soft',
     accent:
-      'bg-accent/15 text-white shadow-glow-accent hover:bg-accent/25',
-    ghost: 'bg-white/[0.03] text-slate-100 hover:bg-white/[0.07]',
+      'bg-transparent text-primary border border-primary/40 hover:bg-primary/10 hover:border-primary',
+    ghost: 'bg-ink-800/80 text-slate-100 border border-white/10 hover:border-primary/30 hover:text-white',
   };
 
   const Comp = href ? MotionLink : motion.button;
@@ -71,9 +71,9 @@ export default function LiquidGlassButton({
       onMouseLeave={reset}
       whileTap={{ scale: 0.97 }}
       className={cn(
-        'liquid-edge group relative inline-flex select-none items-center justify-center gap-2 overflow-hidden rounded-full font-medium',
-        'backdrop-blur-xl transition-colors duration-300 gpu cursor-pointer',
-        'shadow-glass-inset focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ink-950',
+        'liquid-edge group relative inline-flex select-none items-center justify-center gap-2 overflow-hidden rounded-xl font-medium',
+        'transition-colors duration-300 gpu cursor-pointer',
+        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ink-950',
         sizes[size],
         variants[variant],
         className
