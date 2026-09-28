@@ -132,15 +132,16 @@ export default function Navbar() {
           href="/"
           onClick={goHome}
           aria-label={`${siteConfig.name} — back to top`}
-          className="flex items-center rounded-full px-1 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+          className="flex items-center rounded-full bg-transparent px-1 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
         >
           <Image
             src={siteConfig.logo}
             alt={siteConfig.name}
-            width={160}
-            height={40}
+            width={72}
+            height={72}
             priority
-            className="h-9 w-auto object-contain"
+            className="h-10 w-10 bg-transparent object-contain"
+            style={{ background: 'transparent' }}
           />
         </Link>
 

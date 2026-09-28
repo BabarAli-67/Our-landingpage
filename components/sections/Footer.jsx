@@ -1,13 +1,15 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Instagram, Facebook } from 'lucide-react';
 import { siteConfig } from '@/lib/site.config';
 
 const serviceLinks = [
-  { label: 'AI Engineering', href: '/#why-us' },
-  { label: 'Intelligent Platforms', href: '/#web' },
-  { label: 'Mobile Product Apps', href: '/#apps' },
-  { label: 'Automation & APIs', href: '/#process' },
+  { label: 'Web App Development', href: '/#services' },
+  { label: 'Mobile App Development', href: '/#services' },
+  { label: 'AI & Intelligent Integration', href: '/#services' },
+  { label: 'Workflow Automation & CRM', href: '/#services' },
+  { label: 'CMS & WordPress', href: '/#services' },
+  { label: 'SEO & Performance', href: '/#services' },
 ];
 
 const companyLinks = [
@@ -22,6 +24,12 @@ const linkCls =
 const headingCls =
   'mb-4 font-mono text-[11px] font-medium uppercase tracking-[0.2em] text-slate-500';
 
+const socialIcons = {
+  Instagram,
+  Facebook,
+  TikTok: TikTokIcon,
+};
+
 export default function Footer() {
   return (
     <footer className="relative mt-24 border-t border-primary/15">
@@ -31,13 +39,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 items-start gap-6 text-left md:grid-cols-12 md:gap-10">
           {/* Brand — md:col-span-4 */}
           <div className="flex flex-col gap-4 md:col-span-4">
-            <Link href="/" className="inline-flex w-fit items-center">
+            <Link href="/" className="inline-flex w-fit items-center bg-transparent">
               <Image
                 src={siteConfig.logo}
                 alt={siteConfig.name}
-                width={200}
-                height={52}
-                className="h-11 w-auto object-contain"
+                width={96}
+                height={96}
+                className="h-12 w-12 bg-transparent object-contain"
+                style={{ background: 'transparent' }}
               />
             </Link>
             <p className="max-w-sm text-sm leading-relaxed text-slate-400">
@@ -111,6 +120,25 @@ export default function Footer() {
               >
                 {siteConfig.phone}
               </a>
+
+              <div className="mt-1 flex items-center gap-2.5">
+                {siteConfig.socials.map(({ label, href }) => {
+                  const Icon = socialIcons[label];
+                  if (!Icon) return null;
+                  return (
+                    <a
+                      key={label}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={label}
+                      className="grid h-9 w-9 place-items-center rounded-full border border-primary/20 bg-ink-800 text-slate-300 transition-colors hover:border-primary/50 hover:text-primary"
+                    >
+                      <Icon className="h-4 w-4" />
+                    </a>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
@@ -131,5 +159,18 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+  );
+}
+
+function TikTokIcon({ className }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden
+      className={className}
+    >
+      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.16 15.2 6.34 6.34 0 0 0 9.5 21.54a6.34 6.34 0 0 0 6.34-6.34V8.81a8.19 8.19 0 0 0 4.76 1.52V6.9a4.85 4.85 0 0 1-1.01-.21z" />
+    </svg>
   );
 }

@@ -1,4 +1,5 @@
 import ServiceProjects from '@/components/sections/ServiceProjects';
+import ServicesShowcase from '@/components/sections/ServicesShowcase';
 import WhyUs from '@/components/sections/WhyUs';
 import ProcessTimeline from '@/components/sections/ProcessTimeline';
 import Testimonials from '@/components/sections/Testimonials';
@@ -10,12 +11,14 @@ import { webProjects, appProjects } from '@/lib/content';
 
 /**
  * HomePage — AI engineering & full-stack studio landing:
- *   Hero → Platforms → Apps → Why Us → Process → Reviews → CTA
+ *   Hero → Services → Platforms → Apps → Why Us → Process → Reviews → CTA
  */
 export default function HomePage() {
   return (
     <>
       <ScrollExpansionHero />
+
+      <ServicesShowcase />
 
       <ServiceProjects
         id="web"

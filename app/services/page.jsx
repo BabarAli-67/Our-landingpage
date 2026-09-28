@@ -9,7 +9,7 @@ import LiquidGlassButton from '@/components/ui/LiquidGlassButton';
 export const metadata = {
   title: 'Services',
   description:
-    'Agentic AI, enterprise automation, custom CRMs, full-stack web and mobile development from Nexus Dev Studio.',
+    'Web apps, mobile, AI integrations, workflow automation, WordPress/CMS, and SEO performance from Nexus Dev Studio.',
 };
 
 export default function ServicesPage() {
@@ -17,8 +17,8 @@ export default function ServicesPage() {
     <>
       <PageHero
         eyebrow="Services"
-        title="Engineering, agents & automation under one roof"
-        lead="One senior team across the whole stack — so your product, your AI, and your operations finally speak the same language."
+        title="Capabilities engineered for modern products"
+        lead="From full-stack platforms and mobile apps to AI integrations, automation, CMS, and performance — senior engineering across the stack."
       >
         <div className="mt-8">
           <LiquidGlassButton href="/contact" size="lg">
