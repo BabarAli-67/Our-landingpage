@@ -1,9 +1,14 @@
 'use client';
 
 import { whyUs } from '@/lib/content';
+import { siteConfig } from '@/lib/site.config';
 import ContainerScroll from '@/components/sections/ContainerScroll';
 import SectionHeading from '@/components/ui/SectionHeading';
 import Reveal from '@/components/ui/Reveal';
+
+const instagramUrl =
+  siteConfig.socials.find((s) => s.label === 'Instagram')?.href ??
+  'https://www.instagram.com/nexus.devstudio/';
 
 /**
  * WhyUs — Why Choose Us (unified Web + Apps studio).
@@ -40,6 +45,22 @@ export default function WhyUs() {
               );
             })}
           </div>
+
+          <Reveal delay={0.12}>
+            <div className="mt-10 border-t border-primary/10 pt-6">
+              <p className="text-sm leading-relaxed text-slate-400">
+                A team of 4 specialists covering app, AI, web, WordPress and SEO.
+              </p>
+              <a
+                href={instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 inline-flex text-sm font-medium text-primary transition-colors hover:text-primary-soft"
+              >
+                Meet the team and see our latest work → Instagram
+              </a>
+            </div>
+          </Reveal>
         </div>
 
         {/* Right — pinned while left content scrolls; releases at section end */}

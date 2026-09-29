@@ -92,7 +92,7 @@ export default function ScrollExpansionHero() {
               <MessageCircle className="h-4 w-4" />
               Start a build
             </LiquidGlassButton>
-            <LiquidGlassButton href="/#web" size="lg" variant="ghost">
+            <LiquidGlassButton href="/#work" size="lg" variant="ghost">
               View our systems
               <ArrowRight className="h-4 w-4" />
             </LiquidGlassButton>

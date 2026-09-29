@@ -13,7 +13,7 @@ const serviceLinks = [
 ];
 
 const companyLinks = [
-  { label: 'Featured Work', href: '/#web' },
+  { label: 'Featured Work', href: '/#work' },
   { label: 'Why Us', href: '/#why-us' },
   { label: 'Our Process', href: '/#process' },
   { label: 'Client Reviews', href: '/#reviews' },
