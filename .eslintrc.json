@@ -1,3 +1,8 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "@next/next/no-img-element": "error",
+    "@next/next/no-sync-scripts": "error",
+    "jsx-a11y/alt-text": "error"
+  }
 }

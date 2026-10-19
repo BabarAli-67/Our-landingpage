@@ -2,12 +2,15 @@
   "name": "flashllctech",
   "version": "1.0.0",
   "private": true,
-  "description": "Nexus Dev Studio — Websites & Mobile Apps",
+  "description": "Nexus Dev Studio — AI Engineering & Full-Stack Development",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "verify": "npm run typecheck && npm run lint && npm run build",
+    "blur": "node scripts/generate-blur-placeholders.mjs"
   },
   "dependencies": {
     "@splinetool/react-spline": "2.2.6",
@@ -18,13 +21,18 @@
     "next": "^14.2.35",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "sharp": "0.33.5",
     "tailwind-merge": "^2.5.4"
   },
   "devDependencies": {
+    "@types/node": "20.19.43",
+    "@types/react": "18.3.31",
+    "@types/react-dom": "^18.3.1",
     "autoprefixer": "^10.4.20",
     "eslint": "^8.57.1",
     "eslint-config-next": "^14.2.35",
     "postcss": "^8.4.47",
-    "tailwindcss": "^3.4.14"
+    "tailwindcss": "^3.4.14",
+    "typescript": "^5.6.3"
   }
 }

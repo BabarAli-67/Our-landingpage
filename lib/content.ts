@@ -1,0 +1,578 @@
+import type {
+  Benefit,
+  CaseStudy,
+  ClientReview,
+  Differentiator,
+  Faq,
+  PortfolioFilter,
+  PortfolioProject,
+  ProcessStep,
+  Service,
+  Stat,
+  TechGroup,
+} from '@/types';
+import {
+  Workflow,
+  Code2,
+  Smartphone,
+  Cpu,
+  GitBranch,
+  Rocket,
+  ShieldCheck,
+  BrainCircuit,
+  MessagesSquare,
+  Globe2,
+  Gauge,
+  TrendingUp,
+  Layers,
+  Clock,
+  Users,
+  Search,
+  LayoutTemplate,
+} from 'lucide-react';
+
+/* ------------------------------------------------------------------ */
+/*  SERVICES                                                           */
+/* ------------------------------------------------------------------ */
+export const services: readonly Service[] = [
+  {
+    slug: 'web-app',
+    icon: Code2,
+    title: 'Web App Development',
+    excerpt:
+      'Full-stack modern web solutions — Next.js, React, Node.js, FastAPI, and robust architectures built to scale.',
+    points: ['Next.js & React', 'Node.js / FastAPI', 'Robust architectures', 'Cloud-ready delivery'],
+    accent: 'primary',
+  },
+  {
+    slug: 'mobile-app',
+    icon: Smartphone,
+    title: 'Mobile App Development',
+    excerpt:
+      'Cross-platform and native-feel apps with Flutter / React Native — seamless performance and polished UX.',
+    points: ['Flutter & RN', 'Native-feel UX', 'Store delivery', 'Realtime backends'],
+    accent: 'accent',
+  },
+  {
+    slug: 'ai-integration',
+    icon: BrainCircuit,
+    title: 'AI & Intelligent Integration',
+    excerpt:
+      'Integrating LLMs (Gemini, Claude), smart chatbots, OCR, and custom AI-powered workflows into real products.',
+    points: ['Gemini & Claude', 'Smart chatbots', 'OCR pipelines', 'Custom AI workflows'],
+    accent: 'primary',
+  },
+  {
+    slug: 'automation-crm',
+    icon: Workflow,
+    title: 'Workflow Automation & CRM',
+    excerpt:
+      'Streamlining repetitive business processes, API automations, and custom management systems.',
+    points: ['Process automation', 'API integrations', 'Custom CRMs', 'Ops dashboards'],
+    accent: 'accent',
+  },
+  {
+    slug: 'cms-wordpress',
+    icon: LayoutTemplate,
+    title: 'CMS & WordPress Solutions',
+    excerpt:
+      'Tailored WordPress development, custom theme architectures, ACF, and scalable headless setups.',
+    points: ['Custom themes', 'ACF architectures', 'Headless CMS', 'Editor-friendly UX'],
+    accent: 'primary',
+  },
+  {
+    slug: 'seo-performance',
+    icon: Search,
+    title: 'SEO & Performance Optimization',
+    excerpt:
+      'Technical SEO, Core Web Vitals optimization, and high-ranking search visibility engineered into the stack.',
+    points: ['Technical SEO', 'Core Web Vitals', 'Search visibility', 'Speed engineering'],
+    accent: 'accent',
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/*  TECH STACK & CAPABILITIES                                          */
+/* ------------------------------------------------------------------ */
+export const techStack: readonly TechGroup[] = [
+  {
+    group: 'Web & Full-Stack',
+    icon: Code2,
+    items: ['Next.js', 'React', 'Node.js', 'Express', 'MongoDB', 'Django', 'PostgreSQL', 'TypeScript'],
+  },
+  {
+    group: 'Automation & AI',
+    icon: Cpu,
+    items: ['n8n', 'Agentic AI', 'LangChain', 'Python', 'OpenAI', 'Vector DBs', 'RAG', 'Webhooks'],
+  },
+  {
+    group: 'Mobile & Cross-Platform',
+    icon: Smartphone,
+    items: ['React Native', 'Flutter', 'Firebase'],
+  },
+  {
+    group: 'Cloud & DevOps',
+    icon: GitBranch,
+    items: ['AWS', 'Vercel', 'Docker', 'GitHub Actions'],
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/*  CASE STUDIES / WORK                                                */
+/* ------------------------------------------------------------------ */
+export const caseStudies: readonly CaseStudy[] = [
+  {
+    slug: 'nova-crm',
+    title: 'Nova — Revenue CRM',
+    category: 'Custom CRM',
+    result: '+38% pipeline velocity',
+    summary:
+      'A ground-up CRM replacing three disconnected tools, with agentic lead scoring baked in.',
+    image:
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=70',
+    tags: ['Next.js', 'Django', 'Agentic AI'],
+  },
+  {
+    slug: 'atlas-automation',
+    title: 'Atlas — Ops Automation',
+    category: 'Enterprise Automation',
+    result: '1,200 hrs/mo saved',
+    summary:
+      'End-to-end n8n + Python automation across finance, support, and provisioning.',
+    image:
+      'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?auto=format&fit=crop&w=1200&q=70',
+    tags: ['n8n', 'Python', 'AWS'],
+  },
+  {
+    slug: 'orbit-agent',
+    title: 'Orbit — Support Agent',
+    category: 'Agentic AI',
+    result: '71% tickets auto-resolved',
+    summary:
+      'A tool-using support agent with RAG over 40k docs and human-in-the-loop escalation.',
+    image:
+      'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=70',
+    tags: ['LangChain', 'Vector DB', 'Next.js'],
+  },
+  {
+    slug: 'pulse-mobile',
+    title: 'Pulse — Health App',
+    category: 'Mobile',
+    result: '4.9★ / 120k installs',
+    summary:
+      'Offline-first React Native app with real-time sync and biometric onboarding.',
+    image:
+      'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=70',
+    tags: ['React Native', 'Firebase', 'Node.js'],
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/*  CLIENT REVIEWS — Fiverr + direct                                  */
+/* ------------------------------------------------------------------ */
+export const clientReviews: readonly ClientReview[] = [
+  {
+    id: 'r1',
+    name: 'alambodlah',
+    company: 'Fiverr Client',
+    country: 'United Kingdom',
+    source: 'fiverr',
+    rating: 5,
+    quote:
+      'Great experience working with Hanzla, Flutter developer at Nexus Dev Studio! Fixed all Flutter bugs quickly and efficiently. Clean code, great communication, and fast delivery. Highly recommended!',
+  },
+  {
+    id: 'r2',
+    name: 'aboodvirk',
+    company: 'Fiverr Client',
+    country: 'Georgia',
+    source: 'fiverr',
+    rating: 5,
+    quote:
+      'Great experience working with Hanzla, Flutter developer at Nexus Dev Studio from start to finish. I only had a rough idea for my app, but he took the time to understand my requirements and turned it into a clean, professional design concept. The whole process was smooth — quick responses, regular updates on progress, and the final delivery matched exactly what I had in mind. The attention to detail in the UI was impressive for the price point too. Will definitely be working with him again on future projects!',
+  },
+  {
+    id: 'r3',
+    name: 'usamaahmed2022',
+    company: 'Fiverr Client',
+    country: 'Germany',
+    source: 'fiverr',
+    rating: 5,
+    quote:
+      'Great experience working with Hanzla, Flutter developer at Nexus Dev Studio from start to finish. I had a design ready for my app but needed someone to bring it to life, and he did exactly that. He understood my visuals quickly and converted them into a fully functional Flutter app with smooth navigation and proper working logic behind every screen — not just a UI copy, but the real thing. The whole process was smooth, with quick responses and regular updates on progress. He was also fair and open when discussing the scope and pricing. Really impressed with the quality for the price point, and I’ll definitely be coming back for future projects!',
+  },
+  {
+    id: 'r4',
+    name: 'Muhammad Shahbaz',
+    company: 'AL HADID International',
+    country: 'Malaysia',
+    source: 'direct',
+    rating: 5,
+    website: 'https://alhadidtec.com',
+    websiteLabel: 'alhadidtec.com',
+    quote:
+      'Working with Babar, web developer at Nexus Dev Studio has been an excellent experience. He is highly professional, knowledgeable, and committed to delivering high-quality work. He understands requirements well, communicates effectively, and always goes the extra mile to ensure the project is completed successfully. I highly recommend him for any software development project.',
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/*  PROCESS                                                            */
+/* ------------------------------------------------------------------ */
+export const processSteps: readonly ProcessStep[] = [
+  {
+    icon: MessagesSquare,
+    title: 'Discovery & Architecture',
+    body: 'We map goals, data, and constraints — then design the AI surface, stack, and system boundaries before a line ships.',
+  },
+  {
+    icon: Rocket,
+    title: 'AI & Stack Implementation',
+    body: 'Custom LLM / agentic workflows, APIs, and full-stack product surfaces — built in weekly demos you can actually use.',
+  },
+  {
+    icon: Code2,
+    title: 'Integration & Hardening',
+    body: 'Auth, data pipelines, cloud infra, and observability wired in — so intelligence survives contact with production.',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Deploy & Optimize',
+    body: 'Ship to production, measure outcomes, and iterate — with a team that stays after launch.',
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/*  STATS                                                              */
+/* ------------------------------------------------------------------ */
+export const stats: readonly Stat[] = [
+  { value: '120+', label: 'Products shipped' },
+  { value: '98%', label: 'Client retention' },
+  { value: '40M+', label: 'Automated actions / mo' },
+  { value: '6', label: 'Countries served' },
+];
+
+/* ------------------------------------------------------------------ */
+/*  HOMEPAGE SERVICES — mirrors primary services catalogue            */
+/* ------------------------------------------------------------------ */
+export const homeServices: readonly Service[] = services;
+
+/* ------------------------------------------------------------------ */
+/*  RESULTS / BENEFITS — outcome-focused value props                  */
+/* ------------------------------------------------------------------ */
+export const benefits: readonly Benefit[] = [
+  {
+    icon: Rocket,
+    title: 'Ship intelligent systems fast',
+    body: 'Production from the first sprint. You see working AI surfaces and product flows early — and steer with real feedback.',
+    metric: '6–8 wk',
+    metricLabel: 'to first release',
+  },
+  {
+    icon: TrendingUp,
+    title: 'Built to move a metric',
+    body: 'Every engagement targets a business outcome — conversion, resolution rate, hours automated. We instrument it and prove the lift.',
+    metric: '+38%',
+    metricLabel: 'avg. pipeline lift',
+  },
+  {
+    icon: Layers,
+    title: 'Architected to scale',
+    body: 'Clean full-stack architecture, data pipelines, and cloud foundations from day one — so the system you launch is the system you grow.',
+    metric: '40M+',
+    metricLabel: 'events / day handled',
+  },
+  {
+    icon: Gauge,
+    title: 'Performance as a feature',
+    body: 'Sub-second loads, tight interactions, and production hardening. Speed and reliability are engineered in, not bolted on.',
+    metric: '0.4s',
+    metricLabel: 'median TTFB',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Senior engineers, end to end',
+    body: 'No junior hand-offs. The people who design your AI and architecture are the people who build and ship it.',
+    metric: '98%',
+    metricLabel: 'client retention',
+  },
+  {
+    icon: Clock,
+    title: 'Support that compounds',
+    body: 'Monitoring, model/workflow iteration, and platform optimization after launch. We don’t disappear when you go live.',
+    metric: '24/7',
+    metricLabel: 'monitored uptime',
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/*  WHY US — differentiators                                          */
+/* ------------------------------------------------------------------ */
+export const whyUs: readonly Differentiator[] = [
+  {
+    icon: BrainCircuit,
+    title: 'AI engineering, not bolt-ons',
+    body: 'Custom LLM & agentic integrations designed into the product core — workflow automation that compounds, not a chatbot slapped on after launch.',
+  },
+  {
+    icon: Globe2,
+    title: 'Full-stack, end to end',
+    body: 'High-performance web platforms, mobile apps, APIs, and cloud infrastructure — one studio owning the architecture through production.',
+  },
+  {
+    icon: GitBranch,
+    title: 'Weekly, demoable progress',
+    body: 'Every week ends with working software you can click — tight loops, senior builders, no status-update theatre.',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'You own the system',
+    body: 'Clean code, documented infra, and IP in your accounts. No lock-in, no black boxes, no mystery vendors.',
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/*  LANDING — Unified portfolio (filterable)                          */
+/*  Categories: web | mobile | ai                                     */
+/*  Images: /public/assets/projects/                                  */
+/* ------------------------------------------------------------------ */
+export const portfolioFilters: readonly PortfolioFilter[] = [
+  { id: 'web', label: 'Web Apps' },
+  { id: 'mobile', label: 'Mobile Apps' },
+  { id: 'ai', label: 'AI & Integrations' },
+];
+
+export const portfolioProjects: readonly PortfolioProject[] = [
+  {
+    id: 'sales-crm',
+    title: 'Bespoke Sales Operations & Automation CRM',
+    featured: true,
+    categoryLabel: 'Web App',
+    categories: ['web'],
+    badges: ['Full-Stack', 'Automation', 'CRM'],
+    result: 'Role-governed sales execution',
+    tagline:
+      'High-performance, role-governed sales execution engine with automated 24h escalation, callback alerts, and strict CST handovers.',
+    summary:
+      'High-performance, role-governed sales execution engine with automated 24h escalation, callback alerts, and strict CST handovers.',
+    highlights: [
+      'Automated 24h Escalation — rule-based routing of stale agent leads to closers',
+      'Dual-Alert Callback Engine — timezone-accurate 5-minute heads-up + exact due chime',
+      'Validation-Gated CST Handovers — signature gating, pricing, items, structured notes',
+      'Role-Isolated Dashboards — zero-noise UI per operational tier with quick-access drawers',
+      'Lead Governance & Archival — disqualified queues with role-guarded purge workflows',
+    ],
+    image: '/assets/projects/admin.png',
+    imagePosition: 'top',
+    website: 'https://flash-tech-crm.vercel.app/login',
+    websiteLabel: 'Live Demo',
+    caseStudy: true,
+    roles: [
+      {
+        id: 'admin',
+        label: 'Admin',
+        image: '/assets/projects/admin.png',
+      },
+      {
+        id: 'agent',
+        label: 'Sales Agent',
+        image: '/assets/projects/agent.png',
+      },
+      {
+        id: 'closer',
+        label: 'Closer',
+        image: '/assets/projects/closer.png',
+      },
+      {
+        id: 'tech',
+        label: 'Tech',
+        image: '/assets/projects/tech.png',
+      },
+    ],
+    tags: ['React', 'Node.js', 'Express', 'MongoDB', 'Tailwind CSS', 'REST APIs'],
+  },
+  {
+    id: 'hawalay',
+    title: 'Hawalay',
+    featured: true,
+    categoryLabel: 'AI & Web / Mobile',
+    categories: ['web', 'mobile', 'ai'],
+    badges: ['AI Integration', 'Computer Vision', 'Full-Stack'],
+    result: 'Match in under 5 seconds',
+    summary:
+      'AI-powered lost-and-found solution featuring smart computer vision (object detection), text extraction (OCR), and intelligent matching.',
+    highlights: [
+      'Smart search',
+      'Real-time AI assistance',
+      'High-accuracy matching',
+    ],
+    image: '/assets/projects/hawalay.png',
+    imagePosition: 'top',
+    tags: ['React', 'FastAPI', 'Computer Vision', 'OCR', 'MongoDB'],
+  },
+  {
+    id: 'ppsc-prep',
+    title: 'PPSC Exam Prep AI',
+    featured: true,
+    categoryLabel: 'AI & Web Platform',
+    categories: ['web', 'ai'],
+    badges: ['AI Integration', 'Full-Stack', 'LLM'],
+    result: 'Adaptive exam intelligence',
+    summary:
+      'Intelligent exam preparation and assessment platform with automated evaluation, smart query resolution, and tailored test practice.',
+    highlights: [
+      'AI query assistance',
+      'Automated exam drills',
+      'Personalized performance insights',
+    ],
+    image: '/assets/projects/ppsc-prep.png',
+    imagePosition: 'top',
+    tags: ['React', 'Node.js', 'LLM APIs', 'MongoDB', 'Analytics'],
+  },
+  {
+    id: 'streamcraft',
+    title: 'StreamCraft',
+    featured: false,
+    categoryLabel: 'Web App',
+    categories: ['web'],
+    badges: ['Full-Stack', 'Media'],
+    result: 'Full-stack media platform',
+    summary:
+      'High-performance video and social platform with media pipelines, creator analytics, and secure production auth.',
+    highlights: ['Media processing', 'Creator analytics', 'Secure auth'],
+    image: '/assets/projects/streamcraft.png',
+    imagePosition: 'top',
+    tags: ['React', 'Node.js', 'MongoDB', 'Cloudinary', 'Auth'],
+  },
+  {
+    id: 'swiftdrop',
+    title: 'SwiftDrop',
+    featured: false,
+    categoryLabel: 'Web App',
+    categories: ['web'],
+    badges: ['Full-Stack', 'Logistics'],
+    result: 'End-to-end delivery ops',
+    summary:
+      'Enterprise-ready logistics platform with role-based dashboards, realtime parcel workflows, and scalable ops tooling.',
+    highlights: ['Realtime dispatch', 'Role dashboards', 'Analytics'],
+    image: '/assets/projects/swiftdrop.jpg',
+    imagePosition: 'center',
+    tags: ['Next.js', 'Node.js', 'Express', 'MongoDB'],
+  },
+  {
+    id: 'alhadid',
+    title: 'AlHadid International',
+    featured: false,
+    categoryLabel: 'Web App',
+    categories: ['web'],
+    badges: ['Full-Stack', 'Enterprise'],
+    result: '100+ projects · zero layout shift',
+    summary:
+      'High-performance corporate platform with searchable project catalog, branded motion, and a compliance-document hub.',
+    highlights: ['Project catalog', 'Performance', 'Brand systems'],
+    image: '/assets/projects/alhadid.png',
+    imagePosition: 'center',
+    website: 'https://alhadidtec.com',
+    websiteLabel: 'View live site',
+    tags: ['React', 'Tailwind CSS', 'Performance'],
+  },
+  {
+    id: 'skillora',
+    title: 'Skillora',
+    featured: false,
+    categoryLabel: 'Mobile App',
+    categories: ['mobile'],
+    badges: ['Mobile', 'Realtime'],
+    result: 'Knowledge-exchange mobile platform',
+    summary:
+      'Flutter skill-sharing app with swipe discovery, scheduling, realtime chat, and audio/video unlocked after booking.',
+    highlights: ['Swipe discovery', 'Realtime chat', 'A/V sessions'],
+    image: '/assets/projects/skillora.jpeg',
+    imagePosition: 'top',
+    imageFit: 'contain',
+    tags: ['Flutter', 'Firebase', 'Realtime', 'Zego Cloud'],
+  },
+  {
+    id: 'luxemart',
+    title: 'LuxeMart',
+    featured: false,
+    categoryLabel: 'Mobile App',
+    categories: ['mobile'],
+    badges: ['Mobile', 'Commerce'],
+    result: 'Full commerce + admin stack',
+    summary:
+      'Flutter e-commerce product with catalog search, wishlist, checkout, secure payments, and a Firebase admin panel.',
+    highlights: ['Checkout flows', 'Payments', 'Admin ops'],
+    image: '/assets/projects/luxemart.jpeg',
+    imagePosition: 'top',
+    imageFit: 'contain',
+    tags: ['Flutter', 'Firebase', 'Payments', 'Admin'],
+  },
+  {
+    id: 'edustream',
+    title: 'EduStream',
+    featured: false,
+    categoryLabel: 'Mobile App',
+    categories: ['mobile'],
+    badges: ['Mobile', 'Ops Platform'],
+    result: 'School operations system',
+    summary:
+      'Flutter school management system with student ops, automated fees, PDF invoices, analytics, and academic calendars.',
+    highlights: ['Fee automation', 'PDF invoices', 'Analytics'],
+    image: '/assets/projects/edustream.jpeg',
+    imagePosition: 'top',
+    imageFit: 'contain',
+    tags: ['Flutter', 'REST API', 'PDF', 'Analytics'],
+  },
+];
+
+/** @deprecated Prefer portfolioProjects — kept for any legacy imports */
+export const webProjects: readonly PortfolioProject[] = portfolioProjects.filter(
+  (p) => p.categories.includes('web')
+);
+export const appProjects: readonly PortfolioProject[] = portfolioProjects.filter(
+  (p) => p.categories.includes('mobile')
+);
+
+/* ------------------------------------------------------------------ */
+/*  FAQ                                                                */
+/* ------------------------------------------------------------------ */
+export const faqs: readonly Faq[] = [
+  {
+    q: 'What kind of projects do you take on?',
+    a: 'AI engineering, workflow automation, custom LLM & agentic integrations, high-performance full-stack platforms, and production mobile apps — from MVP to enterprise-scale systems.',
+  },
+  {
+    q: 'How long does a typical engagement take?',
+    a: 'Most builds reach a usable production release in six to eight weeks. We ship to real environments from the first sprint, with weekly demos and a clear architecture path.',
+  },
+  {
+    q: 'How do you price work?',
+    a: 'Fixed-scope for well-defined product builds, and a monthly retainer for ongoing platform, AI, and automation work. Outcomes and budget are agreed up front — no open-ended surprises.',
+  },
+  {
+    q: 'Can you integrate AI into an existing product?',
+    a: 'Yes. A large share of our work is adding LLM features, RAG over private data, agentic workflows, and intelligent APIs into products that already exist — without destabilising what already works.',
+  },
+  {
+    q: 'Who owns the code and the IP?',
+    a: 'You do — completely. We deliver clean, documented code and infrastructure in your accounts, with zero lock-in to us or any proprietary layer.',
+  },
+  {
+    q: 'What happens after launch?',
+    a: 'We stay. Monitoring, hardening, model/workflow iteration, and platform optimization are part of every engagement — and most clients keep us on past the first release.',
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/*  TRUST — client / partner wordmarks (text-only, swap for logos)    */
+/* ------------------------------------------------------------------ */
+export const trustLogos: readonly string[] = [
+  'Nova',
+  'Atlas',
+  'Orbit',
+  'Pulse',
+  'Vertex',
+  'Helix',
+  'Sentinel',
+  'Cadence',
+];

@@ -5,14 +5,14 @@
 :root {
   --font-jakarta: 'Plus Jakarta Sans', system-ui, sans-serif;
   --font-jetbrains: 'JetBrains Mono', ui-monospace, monospace;
-  --color-bg: #0F0F11;
-  --color-surface: #1C1C1F;
+  --color-bg: #0f0f11;
+  --color-surface: #1c1c1f;
   --color-surface-raised: #242428;
-  --color-primary: #D4AF37;
-  --color-secondary: #E5C158;
-  --color-tertiary: #C59827;
+  --color-primary: #d4af37;
+  --color-secondary: #e5c158;
+  --color-tertiary: #c59827;
   --color-text: #ffffff;
-  --color-muted: #94a3b8;
+  --color-muted: #7c8a9e;
   color-scheme: dark;
 }
 
@@ -24,6 +24,15 @@
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+    /**
+     * The page background colour lives on `html`, not `body`.
+     *
+     * When `html` has no background, the body's background is propagated to
+     * the canvas, which would paint over the fixed ambient layer below. Giving
+     * `html` the colour stops that propagation and lets `body::before` sit
+     * between the canvas and the content.
+     */
+    background-color: #0f0f11;
   }
 
   /* Offset anchored sections so they clear the fixed navbar on scroll-to. */
@@ -32,8 +41,32 @@
   }
 
   body {
-    @apply bg-ink-950 text-slate-400 antialiased font-sans;
-    /* Ambient gold flares on obsidian */
+    @apply min-h-screen bg-transparent text-muted-strong antialiased font-sans;
+    position: relative;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /**
+   * Ambient gold flares on obsidian.
+   *
+   * This used to be `background-image` + `background-attachment: fixed` on
+   * `body`. A fixed background attachment cannot be composited: the browser
+   * must re-rasterise the painted area on every single scroll frame, and here
+   * that area was three large radial gradients across the full viewport. It
+   * was the single biggest Speed Index and scroll-jank cost on the page.
+   *
+   * A `position: fixed` pseudo-element is visually identical — the gradients
+   * are still sized and positioned against the viewport — but it is promoted
+   * to its own compositor layer and rasterised exactly once.
+   */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
     background-image: radial-gradient(
         ellipse 90% 55% at 50% -8%,
         rgba(212, 175, 55, 0.12),
@@ -41,15 +74,11 @@
       ),
       radial-gradient(ellipse 55% 40% at 100% 8%, rgba(229, 193, 88, 0.08), transparent 60%),
       radial-gradient(ellipse 50% 45% at 0% 30%, rgba(197, 152, 39, 0.06), transparent 60%);
-    background-attachment: fixed;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
   }
 
   ::selection {
     background: rgba(212, 175, 55, 0.35);
-    color: #0F0F11;
+    color: #0f0f11;
   }
 
   @media (pointer: fine) {
@@ -57,12 +86,12 @@
       width: 10px;
     }
     ::-webkit-scrollbar-track {
-      background: #0F0F11;
+      background: #0f0f11;
     }
     ::-webkit-scrollbar-thumb {
-      background: linear-gradient(#C59827, #D4AF37);
+      background: linear-gradient(#c59827, #d4af37);
       border-radius: 999px;
-      border: 2px solid #0F0F11;
+      border: 2px solid #0f0f11;
     }
   }
 
@@ -86,7 +115,7 @@
 
   .eyebrow {
     @apply inline-flex items-center gap-2 rounded-full border border-primary/20 bg-ink-800/90
-      px-3 py-1 font-mono text-xs font-medium uppercase tracking-[0.22em] text-slate-400
+      px-3 py-1 font-mono text-xs font-medium uppercase tracking-[0.22em] text-muted-strong
       shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)];
   }
 
@@ -110,11 +139,65 @@
   }
 }
 
+/* ------------------------------------------------------------------ */
+/*  SCROLL REVEAL                                                      */
+/*  Declared once here and driven by components/ui/RevealRuntime.tsx.  */
+/*  See components/ui/Reveal.tsx — the wrapper is a Server Component    */
+/*  and emits only `data-reveal` plus two custom properties.           */
+/* ------------------------------------------------------------------ */
+
+/*
+ * The keyframes are declared HERE, in plain CSS, not in tailwind.config.ts.
+ * Tailwind only emits a `@keyframes` block when a matching `animation-*`
+ * utility class survives content scanning. Nothing uses `animate-reveal-in` —
+ * the animation is applied by the attribute rule below — so a config-defined
+ * keyframe is purged while the rule that references it survives, and every
+ * reveal stays stuck at `opacity: 0`.
+ */
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, var(--reveal-y, 28px), 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* `data-reveal-js` is set statically on <html> in app/layout.tsx, so the
+   hidden state is in the very first paint and there is no flash of content
+   that then disappears. The <noscript> block in the layout reverses it when
+   scripting is unavailable, so a reveal can never be stranded invisible. */
+html[data-reveal-js] [data-reveal] {
+  opacity: 0;
+}
+
+html[data-reveal-js] [data-reveal][data-revealed] {
+  animation: reveal-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  LIQUID GLASS BUTTON                                                */
+/*  --lx / --ly are unitless pointer offsets (-0.5 .. 0.5) written by   */
+/*  components/ui/LiquidGlassButton.tsx. Interpolating them in CSS      */
+/*  replaces two framer-motion springs per button.                     */
+/* ------------------------------------------------------------------ */
+
 /* Gold edge for Liquid Glass buttons */
 .liquid-edge {
   position: relative;
   isolation: isolate;
 }
+
 .liquid-edge::before {
   content: '';
   position: absolute;
@@ -132,4 +215,194 @@
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
+}
+
+.liquid-specular {
+  background: radial-gradient(
+    120px circle at calc(50% + var(--lx, 0) * 40px) calc(50% + var(--ly, 0) * 40px),
+    rgba(255, 255, 255, 0.25),
+    transparent 60%
+  );
+}
+
+.liquid-label {
+  transform: translate3d(calc(var(--lx, 0) * 10px), calc(var(--ly, 0) * 10px), 0);
+  transition: transform 180ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ------------------------------------------------------------------ */
+/*  NAVBAR                                                             */
+/* ------------------------------------------------------------------ */
+
+/* Sliding active pill. Replaces framer-motion's `layoutId` shared-element
+   transition with a single transform + width transition; the easing matches
+   the former spring({ stiffness: 380, damping: 30 }). */
+.nav-pill {
+  transition:
+    transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    width 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.18s linear;
+}
+
+/* Mobile sheet. Stays in the DOM and is hidden with `visibility`, which
+   removes it from the tab order and from the accessibility tree while still
+   allowing a symmetric enter/exit transition — no AnimatePresence tree and no
+   mount/unmount churn in the header. */
+.nav-sheet {
+  opacity: 0;
+  visibility: hidden;
+  transform: translate3d(0, -12px, 0);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0.25s;
+}
+
+.nav-sheet[data-open='true'] {
+  opacity: 1;
+  visibility: visible;
+  transform: translate3d(0, 0, 0);
+}
+
+/* ------------------------------------------------------------------ */
+/*  CASE-STUDY DIALOG                                                  */
+/*  CSS enter/exit driven by `data-open`, replacing the framer-motion   */
+/*  AnimatePresence tree in components/portfolio/CaseStudyModal.tsx.    */
+/* ------------------------------------------------------------------ */
+
+.case-modal-backdrop,
+.case-modal-panel {
+  transition:
+    opacity 0.24s ease,
+    transform 0.26s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.case-modal-backdrop {
+  opacity: 0;
+}
+
+.case-modal-panel {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+}
+
+.case-modal[data-open='true'] .case-modal-backdrop {
+  opacity: 1;
+}
+
+.case-modal[data-open='true'] .case-modal-panel {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* ------------------------------------------------------------------ */
+/*  FAQ ACCORDION                                                      */
+/*  `grid-template-rows: 0fr -> 1fr` animates an auto height without   */
+/*  measuring it in JavaScript, which is what framer-motion's          */
+/*  `height: auto` animation needed a layout pass per frame to do.     */
+/* ------------------------------------------------------------------ */
+
+.faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.faq-answer > * {
+  overflow: hidden;
+}
+
+.faq-answer[data-open='true'] {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+/* ------------------------------------------------------------------ */
+/*  SCROLL-CHOREOGRAPHED SECTIONS                                      */
+/*                                                                     */
+/*  hooks/useScrollStage.ts writes normalised progress properties onto  */
+/*  the stage element from ONE shared rAF loop; every interpolation     */
+/*  below happens in CSS, on the compositor.                           */
+/*                                                                     */
+/*  The transforms only apply under [data-motion='on'], which the stage */
+/*  sets when motion is actually enabled. Without it (reduced motion,   */
+/*  small screens, no JavaScript) each layer renders at its natural     */
+/*  resting state — exactly the fallback the framer-motion version      */
+/*  produced by passing `style={undefined}`.                            */
+/*                                                                     */
+/*  Every fallback below is the PROGRESS-0 value, not the resting      */
+/*  value: these rules only apply under [data-motion='on'], and between */
+/*  the server HTML and the driver's first write no property is set     */
+/*  yet, so the fallback is what the first paint renders.               */
+/*                                                                     */
+/*  The 240ms linear transitions reproduce the lag of the former        */
+/*  useSpring({ stiffness: 120, damping: 30, mass: 0.3 }), whose slow   */
+/*  pole has a ~0.24s time constant.                                   */
+/* ------------------------------------------------------------------ */
+
+[data-stage='hero'][data-motion='on'] .hero-title,
+[data-stage='hero'][data-motion='on'] .hero-shift-left,
+[data-stage='hero'][data-motion='on'] .hero-shift-right,
+[data-stage='hero'][data-motion='on'] .hero-media,
+[data-stage='hero'][data-motion='on'] .hero-overlay {
+  transition:
+    transform 240ms linear,
+    opacity 240ms linear,
+    border-radius 240ms linear;
+}
+
+/* Headline block: rises and fades out as the banner expands. */
+[data-stage='hero'][data-motion='on'] .hero-title {
+  transform: translate3d(0, calc(var(--pt, 0) * -80px), 0);
+  opacity: calc(1 - var(--pto, 0));
+}
+
+/* Eyebrow + first headline line slide out left, second line slides right. */
+[data-stage='hero'][data-motion='on'] .hero-shift-left {
+  transform: translate3d(calc(var(--pt, 0) * -120px), 0, 0);
+}
+
+[data-stage='hero'][data-motion='on'] .hero-shift-right {
+  transform: translate3d(calc(var(--pt, 0) * 120px), 0, 0);
+}
+
+/* The lead paragraph fades on the same curve as the headline (nested
+   opacity multiplies, matching the original nested motion components). */
+[data-stage='hero'][data-motion='on'] .hero-lead {
+  opacity: calc(1 - var(--pto, 0));
+  transition: opacity 240ms linear;
+}
+
+/* Banner: 0.58 -> 1 scale, 34px -> 0 radius, 24px -> 0 rise. */
+[data-stage='hero'][data-motion='on'] .hero-media {
+  transform: translate3d(0, calc((1 - var(--pm, 0)) * 24px), 0)
+    scale(calc(0.58 + var(--pm, 0) * 0.42));
+  border-radius: calc((1 - var(--pm, 0)) * 34px);
+}
+
+/* Closing statement fades up once the banner is full-bleed. */
+[data-stage='hero'][data-motion='on'] .hero-overlay {
+  opacity: var(--po, 0);
+  transform: translate3d(0, calc((1 - var(--po, 0)) * 40px), 0);
+}
+
+/* ContainerScroll — the device frame tilting upright on entry. */
+[data-stage='container'][data-motion='on'] .cs-frame,
+[data-stage='container'][data-motion='on'] .cs-title {
+  transition:
+    transform 240ms linear,
+    opacity 240ms linear;
+}
+
+[data-stage='container'][data-motion='on'] .cs-frame {
+  transform: rotateX(calc((1 - var(--p, 0)) * 24deg))
+    scale(calc(1.04 - var(--p, 0) * 0.04));
+  opacity: calc(0.5 + var(--pc, 0) * 0.5);
+}
+
+[data-stage='container'][data-motion='on'] .cs-title {
+  transform: translate3d(0, calc(var(--p, 0) * -28px), 0);
 }
