@@ -44,7 +44,7 @@ export const siteConfig: SiteConfig = {
   socials: [
     { label: 'TikTok', href: 'https://www.tiktok.com/@nexus.devstudio' },
     { label: 'Instagram', href: 'https://www.instagram.com/nexus.devstudio/' },
-    { label: 'Facebook', href: 'https://www.facebook.com/nexus.devstudio/' },
+    { label: 'Facebook', href: 'https://web.facebook.com/devnexusstudio' },
   ],
   // Brand mark — transparent PNG (JPEG kept as source backup)
   logo: '/assets/logo.png',
