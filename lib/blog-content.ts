@@ -1,10 +1,10 @@
-import type { BlogPost, BlogAuthor } from '@/types/blog';
+import type { BlogPost, BlogAuthor, BlogCategoryFilter } from '@/types/blog';
 
 /* ------------------------------------------------------------------ */
 /*  BLOG AUTHORS                                                       */
 /* ------------------------------------------------------------------ */
 
-export const authors: Record<string, BlogAuthor> = {
+export const authors = {
   babar: {
     name: 'Babar Ali',
     role: 'Full-Stack Engineer',
@@ -23,7 +23,7 @@ export const authors: Record<string, BlogAuthor> = {
     avatar: '/assets/logo.png',
     bio: 'AI engineering and full-stack development studio.',
   },
-};
+} satisfies Record<string, BlogAuthor>;
 
 /* ------------------------------------------------------------------ */
 /*  BLOG POSTS                                                         */
