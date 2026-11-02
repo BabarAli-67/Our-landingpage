@@ -1,0 +1,67 @@
+
+=== PAGE 1 ===
+SEO Plan for Nexus Dev Studio
+Site reviewed: nexus-devstudio.vercel.app
+The site is built with Next.js (visible from the _next URLs), which is good for SEO
+because pages can be rendered on the server. This document lists what I found and the
+steps to take, in order.
+Problems found
+1. The site is one page. Services, Work, Reviews and Contact are all sections of the
+homepage (/#services). Google can only rank pages, so right now there is one page
+competing for everything. This is the biggest issue.
+2. The domain doesn't match. The site runs on nexus-devstudio.vercel.app, but the
+tags point to nexusdevstudio.com. Google gets mixed signals, and a vercel.app
+address looks less trustworthy to clients.
+3. The meta description is too long. Google cuts it off at about 155 characters, and the
+current one is around 210.
+4. The keywords are vague. "AI engineering & full-stack studio" is not something people
+type into Google. They search things like "web development company in Lahore" or
+"Flutter app developer".
+Step-by-step plan
+Step 1: Connect your real domain
+In Vercel, go to Settings → Domains and add nexusdevstudio.com, if you own it. Then
+redirect the vercel.app address to it.
+Step 2: Set up Google Search Console
+Add your domain, verify it, and submit your sitemap. This tells Google your site exists.
+Step 3: Create separate pages
+Use the ready content for these pages:
+/services/web-app-developmentSEO Plan for Ne xus Dev Studio
+Page 1 of 3
+=== PAGE 2 ===
+/services/mobile-app-development
+/services/ai-integration
+/services/wordpress-development
+/faq
+/work/hawalay, plus one page per project (a case study with problem, solution and
+result)
+Each page should target one main keyword, have one H1, and be at least 500 words.
+Step 4: Fix the tags on every page
+Title: under 60 characters, with the keyword first. Example: Flutter App Development
+Company | Nexus Dev Studio
+Description: under 155 characters, written so people want to click
+Canonical URL: add a unique one to each page
+Step 5: Add a sitemap and robots.txt
+In Next.js, add app/sitemap.ts and app/robots.ts. Then open /sitemap.xml and
+/robots.txt on the live site to check they work. These could not be verified during the
+review.
+Step 6: Add FAQ schema
+Since the FAQs are ready, wrap them in FAQ structured data (JSON-LD). Also add
+Organization and Service schema. Test it for free with Google's Rich Results Test.
+Step 7: Build trust and links
+This is where most beginners stall.
+Create a Google Business Profile
+Keep the same name, email and phone number on Fiverr, Instagram, TikTok, Facebook
+and LinkedIn, and link them all to the website
+Add an email address or contact form next to the WhatsApp button, because some
+visitors won't use WhatsApp
+Over time, get listed on Clutch and GoodFirms, and publish blog posts to attract linksSEO Plan for Ne xus Dev Studio
+Page 2 of 3
+=== PAGE 3 ===
+Decision needed: pick your target market
+The team appears to be in Pakistan, the phone number is UK, and clients come from the
+UK, Germany and Georgia. The keywords differ a lot between "software company in
+Lahore" and "AI developers for hire UK", so this choice shapes the whole content plan.
+Open question: which market do you want most clients from? Once that is decided, the
+next task is to choose exact keywords for each page and write the titles and meta
+descriptions.SEO Plan for Ne xus Dev Studio
+Page 3 of 3
